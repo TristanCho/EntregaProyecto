@@ -33,23 +33,21 @@ namespace capapresentacion
             this.panelMenu = new System.Windows.Forms.Panel();
             this.widgetBoton = new System.Windows.Forms.Button();
             this.Tiempos = new FontAwesome.Sharp.IconButton();
-            this.Aplicaciones = new FontAwesome.Sharp.IconButton();
-            this.Subtareas = new FontAwesome.Sharp.IconButton();
             this.Tareas = new FontAwesome.Sharp.IconButton();
             this.Proyectos = new FontAwesome.Sharp.IconButton();
             this.panelLogo = new System.Windows.Forms.Panel();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.reloj_image = new System.Windows.Forms.PictureBox();
             this.directoryEntry1 = new System.DirectoryServices.DirectoryEntry();
             this.panelTitulo = new System.Windows.Forms.Panel();
+            this.txtnombreusuario = new System.Windows.Forms.Label();
             this.miminizar = new System.Windows.Forms.Button();
             this.cerrar = new System.Windows.Forms.Button();
             this.iconoFormularioActual = new FontAwesome.Sharp.IconPictureBox();
             this.textoInicio = new System.Windows.Forms.Label();
             this.panelFormulario = new System.Windows.Forms.Panel();
-            this.txtnombreusuario = new System.Windows.Forms.Label();
             this.panelMenu.SuspendLayout();
             this.panelLogo.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.reloj_image)).BeginInit();
             this.panelTitulo.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.iconoFormularioActual)).BeginInit();
             this.SuspendLayout();
@@ -59,8 +57,6 @@ namespace capapresentacion
             this.panelMenu.BackColor = System.Drawing.Color.DarkOrange;
             this.panelMenu.Controls.Add(this.widgetBoton);
             this.panelMenu.Controls.Add(this.Tiempos);
-            this.panelMenu.Controls.Add(this.Aplicaciones);
-            this.panelMenu.Controls.Add(this.Subtareas);
             this.panelMenu.Controls.Add(this.Tareas);
             this.panelMenu.Controls.Add(this.Proyectos);
             this.panelMenu.Controls.Add(this.panelLogo);
@@ -99,7 +95,7 @@ namespace capapresentacion
             this.Tiempos.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.Tiempos.IconSize = 32;
             this.Tiempos.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.Tiempos.Location = new System.Drawing.Point(0, 380);
+            this.Tiempos.Location = new System.Drawing.Point(0, 260);
             this.Tiempos.Name = "Tiempos";
             this.Tiempos.Padding = new System.Windows.Forms.Padding(10, 0, 20, 0);
             this.Tiempos.Size = new System.Drawing.Size(200, 60);
@@ -109,50 +105,6 @@ namespace capapresentacion
             this.Tiempos.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.Tiempos.UseVisualStyleBackColor = true;
             this.Tiempos.Click += new System.EventHandler(this.Tiempos_Click);
-            // 
-            // Aplicaciones
-            // 
-            this.Aplicaciones.Dock = System.Windows.Forms.DockStyle.Top;
-            this.Aplicaciones.FlatAppearance.BorderSize = 0;
-            this.Aplicaciones.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.Aplicaciones.ForeColor = System.Drawing.SystemColors.Control;
-            this.Aplicaciones.IconChar = FontAwesome.Sharp.IconChar.Adn;
-            this.Aplicaciones.IconColor = System.Drawing.Color.White;
-            this.Aplicaciones.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.Aplicaciones.IconSize = 32;
-            this.Aplicaciones.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.Aplicaciones.Location = new System.Drawing.Point(0, 320);
-            this.Aplicaciones.Name = "Aplicaciones";
-            this.Aplicaciones.Padding = new System.Windows.Forms.Padding(10, 0, 20, 0);
-            this.Aplicaciones.Size = new System.Drawing.Size(200, 60);
-            this.Aplicaciones.TabIndex = 4;
-            this.Aplicaciones.Text = "Aplicaciones";
-            this.Aplicaciones.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.Aplicaciones.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.Aplicaciones.UseVisualStyleBackColor = true;
-            this.Aplicaciones.Click += new System.EventHandler(this.Aplicaciones_Click);
-            // 
-            // Subtareas
-            // 
-            this.Subtareas.Dock = System.Windows.Forms.DockStyle.Top;
-            this.Subtareas.FlatAppearance.BorderSize = 0;
-            this.Subtareas.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.Subtareas.ForeColor = System.Drawing.SystemColors.Control;
-            this.Subtareas.IconChar = FontAwesome.Sharp.IconChar.UserEdit;
-            this.Subtareas.IconColor = System.Drawing.Color.White;
-            this.Subtareas.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.Subtareas.IconSize = 32;
-            this.Subtareas.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.Subtareas.Location = new System.Drawing.Point(0, 260);
-            this.Subtareas.Name = "Subtareas";
-            this.Subtareas.Padding = new System.Windows.Forms.Padding(10, 0, 20, 0);
-            this.Subtareas.Size = new System.Drawing.Size(200, 60);
-            this.Subtareas.TabIndex = 3;
-            this.Subtareas.Text = "Tareas Personales";
-            this.Subtareas.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.Subtareas.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.Subtareas.UseVisualStyleBackColor = true;
-            this.Subtareas.Click += new System.EventHandler(this.Subtareas_Click);
             // 
             // Tareas
             // 
@@ -202,25 +154,24 @@ namespace capapresentacion
             // 
             // panelLogo
             // 
-            this.panelLogo.Controls.Add(this.pictureBox1);
+            this.panelLogo.Controls.Add(this.reloj_image);
             this.panelLogo.Dock = System.Windows.Forms.DockStyle.Top;
             this.panelLogo.Location = new System.Drawing.Point(0, 0);
             this.panelLogo.Name = "panelLogo";
             this.panelLogo.Size = new System.Drawing.Size(200, 140);
             this.panelLogo.TabIndex = 0;
             // 
-            // pictureBox1
+            // reloj_image
             // 
-            this.pictureBox1.BackgroundImage = global::capapresentacion.Properties.Resources.reloj;
-            this.pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.pictureBox1.Image = global::capapresentacion.Properties.Resources.reloj1;
-            this.pictureBox1.Location = new System.Drawing.Point(6, 2);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(188, 137);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox1.TabIndex = 0;
-            this.pictureBox1.TabStop = false;
-            this.pictureBox1.Click += new System.EventHandler(this.pictureBox1_Click);
+            this.reloj_image.BackgroundImage = global::capapresentacion.Properties.Resources.reloj;
+            this.reloj_image.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.reloj_image.Image = global::capapresentacion.Properties.Resources.reloj1;
+            this.reloj_image.Location = new System.Drawing.Point(6, 2);
+            this.reloj_image.Name = "reloj_image";
+            this.reloj_image.Size = new System.Drawing.Size(188, 137);
+            this.reloj_image.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.reloj_image.TabIndex = 0;
+            this.reloj_image.TabStop = false;
             // 
             // panelTitulo
             // 
@@ -237,6 +188,15 @@ namespace capapresentacion
             this.panelTitulo.TabIndex = 1;
             this.panelTitulo.Paint += new System.Windows.Forms.PaintEventHandler(this.panelTitulo_Paint);
             this.panelTitulo.MouseDown += new System.Windows.Forms.MouseEventHandler(this.FrmPrincipal_MouseDown);
+            // 
+            // txtnombreusuario
+            // 
+            this.txtnombreusuario.AutoSize = true;
+            this.txtnombreusuario.Location = new System.Drawing.Point(456, 17);
+            this.txtnombreusuario.Name = "txtnombreusuario";
+            this.txtnombreusuario.Size = new System.Drawing.Size(35, 13);
+            this.txtnombreusuario.TabIndex = 27;
+            this.txtnombreusuario.Text = "label1";
             // 
             // miminizar
             // 
@@ -297,15 +257,6 @@ namespace capapresentacion
             this.panelFormulario.TabIndex = 2;
             this.panelFormulario.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
             // 
-            // txtnombreusuario
-            // 
-            this.txtnombreusuario.AutoSize = true;
-            this.txtnombreusuario.Location = new System.Drawing.Point(456, 17);
-            this.txtnombreusuario.Name = "txtnombreusuario";
-            this.txtnombreusuario.Size = new System.Drawing.Size(35, 13);
-            this.txtnombreusuario.TabIndex = 27;
-            this.txtnombreusuario.Text = "label1";
-            // 
             // FrmPrincipal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -324,7 +275,7 @@ namespace capapresentacion
             this.MouseDown += new System.Windows.Forms.MouseEventHandler(this.FrmPrincipal_MouseDown);
             this.panelMenu.ResumeLayout(false);
             this.panelLogo.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.reloj_image)).EndInit();
             this.panelTitulo.ResumeLayout(false);
             this.panelTitulo.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.iconoFormularioActual)).EndInit();
@@ -337,12 +288,10 @@ namespace capapresentacion
         private System.Windows.Forms.Panel panelMenu;
         private System.Windows.Forms.Panel panelLogo;
         private FontAwesome.Sharp.IconButton Tiempos;
-        private FontAwesome.Sharp.IconButton Aplicaciones;
-        private FontAwesome.Sharp.IconButton Subtareas;
         private FontAwesome.Sharp.IconButton Tareas;
         private FontAwesome.Sharp.IconButton Proyectos;
         private System.DirectoryServices.DirectoryEntry directoryEntry1;
-        private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.PictureBox reloj_image;
         private System.Windows.Forms.Panel panelTitulo;
         private System.Windows.Forms.Label textoInicio;
         private System.Windows.Forms.Panel panelFormulario;

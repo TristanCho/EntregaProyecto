@@ -202,11 +202,6 @@ namespace capapresentacion
             llamaVisualizaDatos();
         }
 
-        private void txtIdProyecto_TextChanged(object sender, EventArgs e)
-        {
-            
-        }
-
         public void visualizaDatos(string id, string proyecto, string descripcion, string observaciones,string fecha_creacion)
         {
             
@@ -216,63 +211,6 @@ namespace capapresentacion
             this.txtDescripcionProyecto.Text = descripcion;
             this.dtFechaProyecto.Text = fecha_creacion;
             
-        }
-
-
-
-        private void txtObservacionesProyecto_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void dtFechaProyecto_ValueChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label2_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void txtDescripcionProyecto_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void txtTituloProyecto_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void lblObservaciones_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label1_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void lblTituloProyecto_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void lbl_idproyecto_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void btnSiguiente_Click(object sender, EventArgs e)
-        {
-
-            
-            DInformacionProyecto.sumaIndex();
-
-            llamaVisualizaDatos();
-
         }
 
         public void llamaVisualizaDatos()
@@ -325,17 +263,5 @@ namespace capapresentacion
 
         }
 
-        private void btnAtras_Click(object sender, EventArgs e)
-        {
-           
-            DInformacionProyecto.restaIndex();
-            visualizaDatos(
-                    Convert.ToString(DInformacionProyecto.dataListProyectos.Rows[DInformacionProyecto.index].Cells["id"].Value),
-                    Convert.ToString(DInformacionProyecto.dataListProyectos.Rows[DInformacionProyecto.index].Cells["titulo"].Value),
-                    Convert.ToString(DInformacionProyecto.dataListProyectos.Rows[DInformacionProyecto.index].Cells["descripcion"].Value),
-                    Convert.ToString(DInformacionProyecto.dataListProyectos.Rows[DInformacionProyecto.index].Cells["observaciones"].Value),
-                    Convert.ToString(DInformacionProyecto.dataListProyectos.Rows[DInformacionProyecto.index].Cells["fecha"].Value));
-
-        }
     }
 }

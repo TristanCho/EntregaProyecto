@@ -48,8 +48,6 @@ namespace capapresentacion
             this.txtDescripcionProyecto = new System.Windows.Forms.RichTextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.lEdicion = new System.Windows.Forms.Label();
-            this.btnSiguiente = new System.Windows.Forms.Button();
-            this.btnAtras = new FontAwesome.Sharp.IconButton();
             this.btnEliminarProyecto = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.iconoerror)).BeginInit();
             this.SuspendLayout();
@@ -64,7 +62,6 @@ namespace capapresentacion
             this.lbl_idproyecto.TabIndex = 1;
             this.lbl_idproyecto.Text = "IdProyecto";
             this.lbl_idproyecto.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.lbl_idproyecto.Click += new System.EventHandler(this.lbl_idproyecto_Click);
             // 
             // lblObservaciones
             // 
@@ -75,7 +72,6 @@ namespace capapresentacion
             this.lblObservaciones.Size = new System.Drawing.Size(162, 25);
             this.lblObservaciones.TabIndex = 11;
             this.lblObservaciones.Text = "Observaciones:";
-            this.lblObservaciones.Click += new System.EventHandler(this.lblObservaciones_Click);
             // 
             // label1
             // 
@@ -86,7 +82,6 @@ namespace capapresentacion
             this.label1.Size = new System.Drawing.Size(72, 25);
             this.label1.TabIndex = 9;
             this.label1.Text = "Fecha";
-            this.label1.Click += new System.EventHandler(this.label1_Click);
             // 
             // lblTituloProyecto
             // 
@@ -98,7 +93,6 @@ namespace capapresentacion
             this.lblTituloProyecto.TabIndex = 8;
             this.lblTituloProyecto.Text = "Título";
             this.lblTituloProyecto.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.lblTituloProyecto.Click += new System.EventHandler(this.lblTituloProyecto_Click);
             // 
             // txtObservacionesProyecto
             // 
@@ -109,7 +103,6 @@ namespace capapresentacion
             this.txtObservacionesProyecto.Size = new System.Drawing.Size(651, 134);
             this.txtObservacionesProyecto.TabIndex = 14;
             this.txtObservacionesProyecto.Text = "";
-            this.txtObservacionesProyecto.TextChanged += new System.EventHandler(this.txtObservacionesProyecto_TextChanged);
             // 
             // txtIdProyecto
             // 
@@ -117,7 +110,6 @@ namespace capapresentacion
             this.txtIdProyecto.Name = "txtIdProyecto";
             this.txtIdProyecto.Size = new System.Drawing.Size(162, 20);
             this.txtIdProyecto.TabIndex = 15;
-            this.txtIdProyecto.TextChanged += new System.EventHandler(this.txtIdProyecto_TextChanged);
             // 
             // txtTituloProyecto
             // 
@@ -125,7 +117,6 @@ namespace capapresentacion
             this.txtTituloProyecto.Name = "txtTituloProyecto";
             this.txtTituloProyecto.Size = new System.Drawing.Size(162, 20);
             this.txtTituloProyecto.TabIndex = 16;
-            this.txtTituloProyecto.TextChanged += new System.EventHandler(this.txtTituloProyecto_TextChanged);
             // 
             // btnNuevo
             // 
@@ -182,7 +173,6 @@ namespace capapresentacion
             this.dtFechaProyecto.Name = "dtFechaProyecto";
             this.dtFechaProyecto.Size = new System.Drawing.Size(204, 20);
             this.dtFechaProyecto.TabIndex = 18;
-            this.dtFechaProyecto.ValueChanged += new System.EventHandler(this.dtFechaProyecto_ValueChanged);
             // 
             // txtDescripcionProyecto
             // 
@@ -193,7 +183,6 @@ namespace capapresentacion
             this.txtDescripcionProyecto.Size = new System.Drawing.Size(651, 72);
             this.txtDescripcionProyecto.TabIndex = 24;
             this.txtDescripcionProyecto.Text = "";
-            this.txtDescripcionProyecto.TextChanged += new System.EventHandler(this.txtDescripcionProyecto_TextChanged);
             // 
             // label2
             // 
@@ -204,7 +193,6 @@ namespace capapresentacion
             this.label2.Size = new System.Drawing.Size(131, 25);
             this.label2.TabIndex = 23;
             this.label2.Text = "Descripción:";
-            this.label2.Click += new System.EventHandler(this.label2_Click);
             // 
             // lEdicion
             // 
@@ -215,33 +203,6 @@ namespace capapresentacion
             this.lEdicion.Size = new System.Drawing.Size(101, 14);
             this.lEdicion.TabIndex = 25;
             this.lEdicion.Text = "[MODO LECTURA]";
-            // 
-            // btnSiguiente
-            // 
-            this.btnSiguiente.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnSiguiente.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnSiguiente.Location = new System.Drawing.Point(374, 459);
-            this.btnSiguiente.Name = "btnSiguiente";
-            this.btnSiguiente.Size = new System.Drawing.Size(75, 23);
-            this.btnSiguiente.TabIndex = 26;
-            this.btnSiguiente.Text = "-->";
-            this.btnSiguiente.UseVisualStyleBackColor = true;
-            this.btnSiguiente.Click += new System.EventHandler(this.btnSiguiente_Click);
-            // 
-            // btnAtras
-            // 
-            this.btnAtras.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnAtras.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnAtras.IconChar = FontAwesome.Sharp.IconChar.None;
-            this.btnAtras.IconColor = System.Drawing.Color.Black;
-            this.btnAtras.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.btnAtras.Location = new System.Drawing.Point(259, 459);
-            this.btnAtras.Name = "btnAtras";
-            this.btnAtras.Size = new System.Drawing.Size(75, 23);
-            this.btnAtras.TabIndex = 27;
-            this.btnAtras.Text = "<--";
-            this.btnAtras.UseVisualStyleBackColor = true;
-            this.btnAtras.Click += new System.EventHandler(this.btnAtras_Click);
             // 
             // btnEliminarProyecto
             // 
@@ -266,8 +227,6 @@ namespace capapresentacion
             this.BackColor = System.Drawing.SystemColors.ButtonHighlight;
             this.ClientSize = new System.Drawing.Size(749, 494);
             this.Controls.Add(this.btnEliminarProyecto);
-            this.Controls.Add(this.btnAtras);
-            this.Controls.Add(this.btnSiguiente);
             this.Controls.Add(this.lEdicion);
             this.Controls.Add(this.txtDescripcionProyecto);
             this.Controls.Add(this.label2);
@@ -312,8 +271,6 @@ namespace capapresentacion
         private System.Windows.Forms.RichTextBox txtDescripcionProyecto;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label lEdicion;
-        private FontAwesome.Sharp.IconButton btnAtras;
-        private System.Windows.Forms.Button btnSiguiente;
         private System.Windows.Forms.Button btnEliminarProyecto;
     }
 }

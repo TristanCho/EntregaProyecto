@@ -60,15 +60,6 @@ namespace capapresentacion
 
         public void AbrirFormulario(Form childForm)
         {
-            //open only form
-           // if (formularioActual != null)
-            //{
-            //    formularioActual.Close();
-           // }
-           // formularioActual = childForm;
-            //End
-
-
             childForm.TopLevel = false;
             childForm.FormBorderStyle = FormBorderStyle.None;
             childForm.Dock = DockStyle.Fill;
@@ -77,7 +68,6 @@ namespace capapresentacion
             childForm.BringToFront();
             childForm.Show();
 
-            //lblTitleChildForm.Text = childForm.Text;
         }
 
         public void informacionLogin(string login,string bd)
@@ -281,7 +271,6 @@ private void quitarBordes()
    this.Text = String.Empty;
    this.ControlBox = false;
 
-
 }
 
 /*Utilizado para mover el panel atraves de la pantalla*/
@@ -321,23 +310,6 @@ private void quitarBordes()
             //AbrirFormulario(new FrmTarea());
         }
 
-        private void Subtareas_Click(object sender, EventArgs e)
-        {
-            ActivaBoton(sender, RGBColors.color1);
-            FrmTareasPersonales TareasPersonales = new FrmTareasPersonales();
-            TareasPersonales.frmparent = this;
-            AbrirFormulario(TareasPersonales);
-            //AbrirFormulario(new FrmDetalleSubtarea());
-        }
-
-        private void Aplicaciones_Click(object sender, EventArgs e)
-        {
-            ActivaBoton(sender, RGBColors.color1);
-            FrmAplicacion aplicacion = new FrmAplicacion();
-            aplicacion.frmparent = this;
-            AbrirFormulario(aplicacion);
-         
-        }
 
         private void Tiempos_Click(object sender, EventArgs e)
         {
@@ -348,26 +320,15 @@ private void quitarBordes()
 
         }
 
-        private void iconPictureBox1_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void iconoFormularioActual_Click(object sender, EventArgs e)
-        {
-
-        }
-
         private void panelTitulo_Paint(object sender, PaintEventArgs e)
         {
-
+            Console.WriteLine("Entrando en panelTitulo");
         }
 
         private void panel1_Paint(object sender, PaintEventArgs e)
         {
-
+            Console.WriteLine("Entrando en panel1");
         }
-
 
 
         private void cerrar_Click(object sender, EventArgs e)
@@ -395,13 +356,5 @@ private void quitarBordes()
             widget.Show();
             this.cierraForm();
         }
-
-        private void pictureBox1_Click(object sender, EventArgs e)
-        {
-            
-        }
-
-
-
     }
 }

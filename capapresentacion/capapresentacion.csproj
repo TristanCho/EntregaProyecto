@@ -49,12 +49,6 @@
   <ItemGroup>
     <Compile Include="DInformacionProyecto.cs" />
     <Compile Include="DInformacionTarea.cs" />
-    <Compile Include="FrmAplicacion.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="FrmAplicacion.Designer.cs">
-      <DependentUpon>FrmAplicacion.cs</DependentUpon>
-    </Compile>
     <Compile Include="FrmDetalleTiempos.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -72,12 +66,6 @@
     </Compile>
     <Compile Include="FrmTarea.Designer.cs">
       <DependentUpon>FrmTarea.cs</DependentUpon>
-    </Compile>
-    <Compile Include="FrmTareasPersonales.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="FrmTareasPersonales.Designer.cs">
-      <DependentUpon>FrmTareasPersonales.cs</DependentUpon>
     </Compile>
     <Compile Include="FrmTiempos.cs">
       <SubType>Form</SubType>
@@ -97,23 +85,11 @@
     <Compile Include="Widget.designer.cs">
       <DependentUpon>Widget.cs</DependentUpon>
     </Compile>
-    <Compile Include="FrmDetalleAplicacion.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="FrmDetalleAplicacion.Designer.cs">
-      <DependentUpon>FrmDetalleAplicacion.cs</DependentUpon>
-    </Compile>
     <Compile Include="FrmDetalleProyecto.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="FrmDetalleProyecto.Designer.cs">
       <DependentUpon>FrmDetalleProyecto.cs</DependentUpon>
-    </Compile>
-    <Compile Include="FrmDetallesTareasPersonales.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="FrmDetallesTareasPersonales.Designer.cs">
-      <DependentUpon>FrmDetallesTareasPersonales.cs</DependentUpon>
     </Compile>
     <Compile Include="FrmDetalleTarea.cs">
       <SubType>Form</SubType>
@@ -145,9 +121,6 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="FrmAplicacion.resx">
-      <DependentUpon>FrmAplicacion.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="FrmDetalleTiempos.resx">
       <DependentUpon>FrmDetalleTiempos.cs</DependentUpon>
     </EmbeddedResource>
@@ -156,9 +129,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FrmTarea.resx">
       <DependentUpon>FrmTarea.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="FrmTareasPersonales.resx">
-      <DependentUpon>FrmTareasPersonales.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FrmTiempos.resx">
       <DependentUpon>FrmTiempos.cs</DependentUpon>
@@ -169,14 +139,8 @@
     <EmbeddedResource Include="Widget.resx">
       <DependentUpon>Widget.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FrmDetalleAplicacion.resx">
-      <DependentUpon>FrmDetalleAplicacion.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="FrmDetalleProyecto.resx">
       <DependentUpon>FrmDetalleProyecto.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="FrmDetallesTareasPersonales.resx">
-      <DependentUpon>FrmDetallesTareasPersonales.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FrmDetalleTarea.resx">
       <DependentUpon>FrmDetalleTarea.cs</DependentUpon>
