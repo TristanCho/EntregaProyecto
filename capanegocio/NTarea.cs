@@ -115,14 +115,5 @@ namespace capanegocio
             return objeto.mostrarEstadoCombobox(objeto);
         }
 
-       // public static string insertartarea(string titulo, string observaciones, string descripcion, DateTime fecha)
- 
-
-        public static DTareasDatos siguienteInforme(string textobuscar)
-        {
-            DTarea objeto = new DTarea();
-            objeto.Textobuscar = textobuscar;
-            return objeto.siguienteInforme(objeto);
-        }
     }
 }

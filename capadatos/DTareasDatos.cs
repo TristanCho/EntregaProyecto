@@ -12,7 +12,6 @@ namespace capadatos
         
         private string proyecto;
         private string estado;
-
         private string titulo;
         private string descripcion;
         private string observaciones;

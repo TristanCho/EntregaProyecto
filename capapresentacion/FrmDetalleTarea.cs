@@ -103,20 +103,17 @@ namespace capapresentacion
 
         }
 
-        private void txtAplicacion_TextChanged(object sender, EventArgs e)
-        {
+        //private void txtAplicacion_TextChanged(object sender, EventArgs e)
+        //{
 
-        }
+        //}
 
         private void FrmDetalleTarea_Load(object sender, EventArgs e)
         {
 
         }
 
-        private void comboboxProyecto_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-        }
+    
 
         private void btnNuevo_Click(object sender, EventArgs e)
         {
@@ -202,7 +199,6 @@ namespace capapresentacion
             {
                 string rpta = "";
 
-
                 if (this.txtTituloTarea.Text == string.Empty)
                 {
                     mensajeerror("Formulario incompleto");
@@ -212,7 +208,6 @@ namespace capapresentacion
                 {
                     if (esnuevo)
                     {
-
                         rpta = NTarea.insertartarea(
                             this.txtTituloTarea.Text.Trim().ToUpper(),
                             this.txtDescripcionTarea.Text.Trim(),  
@@ -236,27 +231,18 @@ namespace capapresentacion
                             this.lTecnico.Text,
                             this.comboboxProyecto.SelectedItem.ToString()
                             );
-                        // rpta = NTarea.editarTarea(Convert.ToInt32(this.txtIdTarea.Text), this.txtTituloTarea.Text.Trim().ToUpper(), this.txtDescripcionTarea.Text.Trim(), this.txtObservacionesTarea.Text.Trim(), this.comboboxEstado.SelectedValue, Convert.ToDateTime(this.dtFechaTarea.Value));
-                        //rpta = NProyecto.editarproyecto(
-                        //    Convert.ToInt32(this.txtIdProyecto.Text),
-                        //    this.txtTituloProyecto.Text.Trim().ToUpper(),
-                        //    this.txtObservacionesProyecto.Text.Trim(),
-                        //    this.dtFechaProyecto.Value);
-
                     }
 
                     if (rpta.Equals("OK"))
                     {
                         if (esnuevo)
                         {
-                            this.mensajeok("Se ha creado el proyecto satisfactoriamente");
-
+                            this.mensajeok("Se ha creado la tarea satisfactoriamente");
                         }
                         else
                         {
-                            this.mensajeok("Se ha editado el proyecto satisfactoriamente");
+                            this.mensajeok("Se ha editado la tarea satisfactoriamente");
                         }
-
                     }
                     else
                     {
@@ -265,7 +251,6 @@ namespace capapresentacion
                     botonesVisible(false);
                     botones();
                     this.limpiar();
-
                 }
             }
 
@@ -316,14 +301,6 @@ namespace capapresentacion
 
         }
 
-        private void btnSiguiente_Click(object sender, EventArgs e)
-        {
-            DInformacionTarea.sumaIndex();
-            comboboxProyecto.Items.Clear();
-            comboboxEstado.Items.Clear();
-            llamaVisualizaDatos();
-
-        }
         public void llamaVisualizaDatos()
         {
 
@@ -338,18 +315,6 @@ namespace capapresentacion
                 Convert.ToString(DInformacionTarea.dataListTareas.Rows[DInformacionTarea.index].Cells["tecnico"].Value)
                 );
         }
-        private void btnAtras_Click(object sender, EventArgs e)
-        {
-            DInformacionTarea.restaIndex();
-            comboboxProyecto.Items.Clear();
-            comboboxEstado.Items.Clear();
-            llamaVisualizaDatos();
-
-        }
-
-        private void dtFechaTarea_ValueChanged(object sender, EventArgs e)
-        {
-
-        }
+     
     }
 }

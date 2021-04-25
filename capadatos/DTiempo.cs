@@ -300,6 +300,39 @@ namespace capadatos
             return rpta;
         }
 
+        public string[] mostrarTareaCombobox(DTiempo objeto)
+        {
+            string[] array = new string[] { };
+
+            DataTable dtresultado = new DataTable("tiempos");
+            SqlConnection SqlCon = new SqlConnection();
+            try
+            {
+                SqlCon.ConnectionString = Conexion.cn;
+                SqlCon.Open();
+                SqlCommand SqlCmd = new SqlCommand();
+                SqlCmd.Connection = SqlCon;
+                SqlCmd.CommandText = "spmostrar_combo_tareas";
+                SqlCmd.CommandType = CommandType.StoredProcedure;
+
+                SqlDataAdapter sqladap = new SqlDataAdapter(SqlCmd);//es el que se encarga de rellenar nuestra tabla con el procedimiento almacenado
+                sqladap.Fill(dtresultado);
+
+                array = dtresultado.Rows.OfType<DataRow>().Select(k => k[0].ToString()).ToArray();
+            }
+            catch (Exception)
+            {
+                dtresultado = null;
+            }
+            finally
+            {
+                if (SqlCon.State == ConnectionState.Open) SqlCon.Close();
+
+            }
+
+            return array;
+        }
+
     }
 
     public class DTiempoid

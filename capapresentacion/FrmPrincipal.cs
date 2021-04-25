@@ -297,7 +297,6 @@ private void quitarBordes()
         }
 
         public void lanzarNuevoElemento(Form formulario) {
-            //AbrirFormulario(new FrmDetalleProyecto());
             AbrirFormulario(formulario);
         }
 

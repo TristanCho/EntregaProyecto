@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Data;
 using System.Data.SqlClient;
+using System.Windows.Forms;
 
 namespace capadatos
 {
@@ -13,8 +14,6 @@ namespace capadatos
         private int _id;
         private string _titulo;
         private string _descripcion;
-        private string _aplicacion;
-        private string _prioridad;
         private string _estado;
         private string _textobuscar;
         private string _proyecto;
@@ -25,8 +24,6 @@ namespace capadatos
         public int Id { get => _id; set => _id = value; }
         public string Titulo { get => _titulo; set => _titulo = value; }
         public string Descripcion { get => _descripcion; set => _descripcion = value; }
-        public string Aplicacion { get => _aplicacion; set => _aplicacion = value; }
-        public string Prioridad { get => _prioridad; set => _prioridad = value; }
         public string Estado { get => _estado; set => _estado = value; }
         public string Observaciones { get => _observaciones; set => _observaciones = value; }
         public string Textobuscar { get => _textobuscar; set => _textobuscar = value; }
@@ -39,13 +36,12 @@ namespace capadatos
 
         }
 
-        public DTarea(int id, string titulo, string descripcion, string aplicacion, string prioridad, string estado, string textobuscar)
+        public DTarea(int id, string titulo, string descripcion, string proyecto, string prioridad, string estado, string textobuscar)
         {
             Id = id;
             Titulo = titulo;
             Descripcion = descripcion;
-            Aplicacion = aplicacion;
-            Prioridad = prioridad;
+            Proyecto = proyecto;
             Estado = estado;
             Textobuscar = textobuscar;
         }
@@ -277,58 +273,54 @@ namespace capadatos
             return array;
         }
 
-        public  DTareasDatos siguienteInforme(DTarea tarea)
-        {
+        //public  DTareasDatos siguienteInforme(DTarea tarea)
+        //{
 
-                DTareasDatos datos = new DTareasDatos();
-                DataTable dtresultado = new DataTable("proyectos");
-                SqlConnection SqlCon = new SqlConnection();
-                try
-                {
-                    SqlCon.ConnectionString = Conexion.cn;
-                    SqlCon.Open();
-                    SqlCommand SqlCmd = new SqlCommand();
-                    SqlCmd.Connection = SqlCon;
-                    SqlCmd.CommandText = "spcambiarTareasSiguiente";
-                    SqlCmd.CommandType = CommandType.StoredProcedure;
+        //        DTareasDatos datos = new DTareasDatos();
+        //        DataTable dtresultado = new DataTable("proyectos");
+        //        SqlConnection SqlCon = new SqlConnection();
+        //        try
+        //        {
+        //            SqlCon.ConnectionString = Conexion.cn;
+        //            SqlCon.Open();
+        //            SqlCommand SqlCmd = new SqlCommand();
+        //            SqlCmd.Connection = SqlCon;
+        //            SqlCmd.CommandText = "spcambiarTareasSiguiente";
+        //            SqlCmd.CommandType = CommandType.StoredProcedure;
 
-                    //Buscar proyecto por codigo
-                    SqlParameter ParTextobuscar = new SqlParameter();
-                    ParTextobuscar.ParameterName = "@idbuscar";
-                    ParTextobuscar.SqlDbType = SqlDbType.VarChar;
-                    ParTextobuscar.Size = 10;
-                    ParTextobuscar.Value = tarea.Textobuscar;
-                    SqlCmd.Parameters.Add(ParTextobuscar);
+        //            //Buscar proyecto por codigo
+        //            SqlParameter ParTextobuscar = new SqlParameter();
+        //            ParTextobuscar.ParameterName = "@idbuscar";
+        //            ParTextobuscar.SqlDbType = SqlDbType.VarChar;
+        //            ParTextobuscar.Size = 10;
+        //            ParTextobuscar.Value = tarea.Textobuscar;
+        //            SqlCmd.Parameters.Add(ParTextobuscar);
 
-                    SqlDataAdapter sqladap = new SqlDataAdapter(SqlCmd);
-                    sqladap.Fill(dtresultado);//es el que se encarga de rellenar nuestra tabla con el procedimiento almacenado
-
-
+        //            SqlDataAdapter sqladap = new SqlDataAdapter(SqlCmd);
+        //            sqladap.Fill(dtresultado);//es el que se encarga de rellenar nuestra tabla con el procedimiento almacenado
 
 
-                    datos.Id = dtresultado.Rows.OfType<DataRow>().Select(k => k[0].ToString()).First();
-                    datos.Proyecto = dtresultado.Rows.OfType<DataRow>().Select(k => k[1].ToString()).First();
-                    datos.Titulo = dtresultado.Rows.OfType<DataRow>().Select(k => k[2].ToString()).First();
-                    datos.Descripcion = dtresultado.Rows.OfType<DataRow>().Select(k => k[3].ToString()).First();
-                    datos.Observaciones = dtresultado.Rows.OfType<DataRow>().Select(k => k[4].ToString()).First();
-                    datos.Fecha = dtresultado.Rows.OfType<DataRow>().Select(k => k[5].ToString()).First();
-                    datos.Estado = dtresultado.Rows.OfType<DataRow>().Select(k => k[6].ToString()).First();
 
 
-            }
-                catch (Exception)
-                {
-                    dtresultado = null;
-                }
-                finally
-                {
-                    if (SqlCon.State == ConnectionState.Open) SqlCon.Close();
+        //            datos.Id = dtresultado.Rows.OfType<DataRow>().Select(k => k[0].ToString()).First();
+        //            datos.Proyecto = dtresultado.Rows.OfType<DataRow>().Select(k => k[1].ToString()).First();
+        //            datos.Titulo = dtresultado.Rows.OfType<DataRow>().Select(k => k[2].ToString()).First();
+        //            datos.Descripcion = dtresultado.Rows.OfType<DataRow>().Select(k => k[3].ToString()).First();
+        //            datos.Observaciones = dtresultado.Rows.OfType<DataRow>().Select(k => k[4].ToString()).First();
+        //            datos.Fecha = dtresultado.Rows.OfType<DataRow>().Select(k => k[5].ToString()).First();
+        //            datos.Estado = dtresultado.Rows.OfType<DataRow>().Select(k => k[6].ToString()).First();
+        //         }   
+        //        catch (Exception)
+        //        {
+        //            dtresultado = null;
+        //        }
+        //        finally
+        //        {
+        //            if (SqlCon.State == ConnectionState.Open) SqlCon.Close();
+        //        }
 
-                }
-
-                return datos;
-           
-        }
+        //        return datos;
+        //}
 
         public string editarTarea(DTarea tarea)
         {
@@ -390,7 +382,6 @@ namespace capadatos
                 //estado
                 SqlParameter ParEstado = new SqlParameter();
                 ParEstado.ParameterName = "@estado";
-                //ParFecha.SqlDbType = SqlDbType.SmallDateTime;
                 ParEstado.SqlDbType = SqlDbType.NText;
                 //ParFecha.Size = 1024;
                 ParEstado.Value = tarea.Estado;
@@ -418,6 +409,9 @@ namespace capadatos
             }
             catch (Exception ex)
             {
+                MessageBox.Show("Ha ocurrido un error");
+
+                MessageBox.Show(ex.Message, ex.StackTrace);
                 rpta = ex.Message;
             }
             finally

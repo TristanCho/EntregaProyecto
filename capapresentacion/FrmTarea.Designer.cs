@@ -38,6 +38,7 @@ namespace capapresentacion
             this.btnEliminarProyecto = new System.Windows.Forms.Button();
             this.btnNuevo = new System.Windows.Forms.Button();
             this.cboBuscarTareas = new System.Windows.Forms.ComboBox();
+            this.lblTotal = new System.Windows.Forms.Label();
             this.panelRecuadro.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataListTareas)).BeginInit();
             this.SuspendLayout();
@@ -50,7 +51,6 @@ namespace capapresentacion
             this.label_añadir.Size = new System.Drawing.Size(37, 13);
             this.label_añadir.TabIndex = 21;
             this.label_añadir.Text = "Añadir";
-            this.label_añadir.Click += new System.EventHandler(this.label_añadir_Click);
             // 
             // panelRecuadro
             // 
@@ -96,7 +96,7 @@ namespace capapresentacion
             this.txtBuscarTarea.Name = "txtBuscarTarea";
             this.txtBuscarTarea.Size = new System.Drawing.Size(487, 20);
             this.txtBuscarTarea.TabIndex = 14;
-            this.txtBuscarTarea.TextChanged += new System.EventHandler(this.txtBuscarProyecto_TextChanged);
+            this.txtBuscarTarea.TextChanged += new System.EventHandler(this.txtBuscarTarea_TextChanged);
             // 
             // cbEliminar
             // 
@@ -123,7 +123,7 @@ namespace capapresentacion
             this.btnEliminarProyecto.Size = new System.Drawing.Size(32, 28);
             this.btnEliminarProyecto.TabIndex = 23;
             this.btnEliminarProyecto.UseVisualStyleBackColor = false;
-            this.btnEliminarProyecto.Click += new System.EventHandler(this.btnEliminarProyecto_Click);
+            this.btnEliminarProyecto.Click += new System.EventHandler(this.btnEliminarTarea_Click);
             // 
             // btnNuevo
             // 
@@ -158,6 +158,15 @@ namespace capapresentacion
             this.cboBuscarTareas.TabIndex = 13;
             this.cboBuscarTareas.SelectedIndexChanged += new System.EventHandler(this.cboBuscarTareas_SelectedIndexChanged);
             // 
+            // lblTotal
+            // 
+            this.lblTotal.AutoSize = true;
+            this.lblTotal.Location = new System.Drawing.Point(557, 153);
+            this.lblTotal.Name = "lblTotal";
+            this.lblTotal.Size = new System.Drawing.Size(94, 13);
+            this.lblTotal.TabIndex = 24;
+            this.lblTotal.Text = "Número de tareas:";
+            // 
             // FrmTarea
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -165,6 +174,7 @@ namespace capapresentacion
             this.BackColor = System.Drawing.SystemColors.ControlLightLight;
             this.ClientSize = new System.Drawing.Size(800, 489);
             this.ControlBox = false;
+            this.Controls.Add(this.lblTotal);
             this.Controls.Add(this.btnEliminarProyecto);
             this.Controls.Add(this.cbEliminar);
             this.Controls.Add(this.label_añadir);
@@ -193,5 +203,6 @@ namespace capapresentacion
         private System.Windows.Forms.Button btnEliminarProyecto;
         private System.Windows.Forms.CheckBox cbEliminar;
         private System.Windows.Forms.ComboBox cboBuscarTareas;
+        private System.Windows.Forms.Label lblTotal;
     }
 }

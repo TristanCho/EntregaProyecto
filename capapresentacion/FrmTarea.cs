@@ -39,9 +39,10 @@ namespace capapresentacion
         public void mostrartareas()
         {
             this.dataListTareas.DataSource = NTarea.mostrartareas();
-            // this.ocultarcolumnas();
+            this.ocultarcolumnas();
             // this.btnEliminarProyecto.Visible = true;
-            //  this.lblTotal.Text = "Número de proyectos: " + Convert.ToString(dataListProyectos.Rows.Count);
+            this.lblTotal.Text = "Número de tareas: " + Convert.ToString(dataListTareas.Rows.Count);
+            this.cbEliminar.Checked = false;
         }
 
         private void btnNuevo_Click(object sender, EventArgs e)
@@ -51,30 +52,17 @@ namespace capapresentacion
             detalleTareas.mostrarEstadoCombobox();
             detalleTareas.setModo("CREACIÓN");
             detalleTareas.setTecnico();
-
-        }
-
-        private void label_añadir_Click(object sender, EventArgs e)
-        {
-
         }
 
         private void ocultarcolumnas()
         {
             this.dataListTareas.Columns[0].Visible = false;
             this.dataListTareas.Columns[1].Visible = false;
-            //this.dataListProyectos.Columns[1].Visible = false;
-            // this.btnEliminarProyecto.Enabled = false;
-            //this.cbEliminar.Checked = false;
-
         }
 
-        private void txtBuscarProyecto_TextChanged(object sender, EventArgs e)
+        private void txtBuscarTarea_TextChanged(object sender, EventArgs e)
         {
             this.buscarTarea(this.txtBuscarTarea.Text);
-
-
-
         }
 
         private void buscarTarea(string texto)
@@ -106,15 +94,11 @@ namespace capapresentacion
                         break;
                 }
             }
-
-
-            //this.ocultarcolumnas();
+           // this.ocultarcolumnas();
         }
 
         private void dataListTareas_CellDoubleClick(object sender, EventArgs e)
         {
-
- 
             detalleTareas.visualizaDatos(
                 Convert.ToString(this.dataListTareas.CurrentRow.Cells["id"].Value),
                 Convert.ToString(this.dataListTareas.CurrentRow.Cells["Proyecto"].Value),
@@ -127,17 +111,6 @@ namespace capapresentacion
                 );
             detalleTareas.setModo("LECTURA");
             frmparent.lanzarNuevoElemento(detalleTareas);
-            
-
-            try
-            {
-
-
-            }
-            catch (Exception)
-            {
-                MessageBox.Show("Error en el evento Double click ", "Error en el evento Double click ", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
         }
 
         private void cboBuscarTareas_SelectedIndexChanged(object sender, EventArgs e)
@@ -198,12 +171,12 @@ namespace capapresentacion
             }
         }
 
-        private void btnEliminarProyecto_Click(object sender, EventArgs e)
+        private void btnEliminarTarea_Click(object sender, EventArgs e)
         {
             try
             {
                 DialogResult opcion;
-                opcion = MessageBox.Show("¿Desea continuar?", "Eliminar Proyecto", MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
+                opcion = MessageBox.Show("¿Desea continuar?", "Eliminar Tarea", MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
                 if (opcion == DialogResult.OK)
                 {
                     int aux = 0;

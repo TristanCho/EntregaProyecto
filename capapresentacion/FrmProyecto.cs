@@ -24,7 +24,6 @@ namespace capapresentacion
             btnEliminarProyecto.FlatAppearance.BorderColor = Color.FromArgb(0, 255, 255, 255);
             mostrarproyectos();
             quitarBordes();
-
         }
 
         private void mensajeok(string mensaje)
@@ -67,7 +66,6 @@ namespace capapresentacion
             this.dataListProyectos.Columns[1].Visible = false;
             this.btnEliminarProyecto.Enabled = false;
             this.cbEliminar.Checked = false;
-
         }
 
         private void btnNuevo_Click(object sender, EventArgs e)
@@ -76,8 +74,6 @@ namespace capapresentacion
             frmparent.lanzarNuevoElemento(detalleproyecto);
             detalleproyecto.setModo("CREACIÓN");
         }
-
-       
 
         private void quitarBordes()
         {
@@ -147,10 +143,6 @@ namespace capapresentacion
 
                 frmparent.lanzarNuevoElemento(detalleProyecto);
 
-
-
-
-
                 detalleProyecto.setModo("LECTURA");
             }
             catch (Exception)
@@ -218,9 +210,7 @@ namespace capapresentacion
         private void txtBuscarProyecto_TextChanged(object sender, EventArgs e)
         {
             this.buscarProyecto(this.txtBuscarProyecto.Text);
-        }        
-       
+        }               
         /*PROCEDURES*/
-
     }
 }

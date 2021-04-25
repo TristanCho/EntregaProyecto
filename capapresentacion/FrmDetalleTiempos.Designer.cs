@@ -35,7 +35,6 @@ namespace capapresentacion
             this.btnGuardar = new System.Windows.Forms.Button();
             this.btnNuevo = new System.Windows.Forms.Button();
             this.dtFechaInicio = new System.Windows.Forms.DateTimePicker();
-            this.txtTarea = new System.Windows.Forms.TextBox();
             this.txtObservaciones = new System.Windows.Forms.RichTextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.lblDescripciones = new System.Windows.Forms.Label();
@@ -48,6 +47,7 @@ namespace capapresentacion
             this.label5 = new System.Windows.Forms.Label();
             this.iconoerror = new System.Windows.Forms.ErrorProvider(this.components);
             this.mensajetool = new System.Windows.Forms.ToolTip(this.components);
+            this.comboboxTarea = new System.Windows.Forms.ComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.iconoerror)).BeginInit();
             this.SuspendLayout();
             // 
@@ -103,14 +103,6 @@ namespace capapresentacion
             this.dtFechaInicio.Name = "dtFechaInicio";
             this.dtFechaInicio.Size = new System.Drawing.Size(204, 20);
             this.dtFechaInicio.TabIndex = 38;
-            // 
-            // txtTarea
-            // 
-            this.txtTarea.Location = new System.Drawing.Point(144, 54);
-            this.txtTarea.Name = "txtTarea";
-            this.txtTarea.Size = new System.Drawing.Size(162, 20);
-            this.txtTarea.TabIndex = 37;
-            this.mensajetool.SetToolTip(this.txtTarea, "Seleccione Tarea");
             // 
             // txtObservaciones
             // 
@@ -211,6 +203,14 @@ namespace capapresentacion
             // 
             this.iconoerror.ContainerControl = this;
             // 
+            // comboboxTarea
+            // 
+            this.comboboxTarea.FormattingEnabled = true;
+            this.comboboxTarea.Location = new System.Drawing.Point(144, 53);
+            this.comboboxTarea.Name = "comboboxTarea";
+            this.comboboxTarea.Size = new System.Drawing.Size(162, 21);
+            this.comboboxTarea.TabIndex = 55;
+            // 
             // FrmDetalleTiempos
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -218,6 +218,7 @@ namespace capapresentacion
             this.BackColor = System.Drawing.SystemColors.ControlLightLight;
             this.ClientSize = new System.Drawing.Size(781, 494);
             this.ControlBox = false;
+            this.Controls.Add(this.comboboxTarea);
             this.Controls.Add(this.txtIdTiempo);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.dtFechaFin);
@@ -229,7 +230,6 @@ namespace capapresentacion
             this.Controls.Add(this.btnGuardar);
             this.Controls.Add(this.btnNuevo);
             this.Controls.Add(this.dtFechaInicio);
-            this.Controls.Add(this.txtTarea);
             this.Controls.Add(this.txtObservaciones);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.lblDescripciones);
@@ -248,7 +248,6 @@ namespace capapresentacion
         private System.Windows.Forms.Button btnGuardar;
         private System.Windows.Forms.Button btnNuevo;
         private System.Windows.Forms.DateTimePicker dtFechaInicio;
-        private System.Windows.Forms.TextBox txtTarea;
         private System.Windows.Forms.RichTextBox txtObservaciones;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label lblDescripciones;
@@ -261,5 +260,6 @@ namespace capapresentacion
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.ErrorProvider iconoerror;
         private System.Windows.Forms.ToolTip mensajetool;
+        private System.Windows.Forms.ComboBox comboboxTarea;
     }
 }

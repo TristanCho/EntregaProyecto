@@ -136,7 +136,6 @@ namespace capapresentacion
             this.dtFechaTarea.Name = "dtFechaTarea";
             this.dtFechaTarea.Size = new System.Drawing.Size(204, 20);
             this.dtFechaTarea.TabIndex = 38;
-            this.dtFechaTarea.ValueChanged += new System.EventHandler(this.dtFechaTarea_ValueChanged);
             // 
             // txtTituloTarea
             // 
@@ -243,7 +242,6 @@ namespace capapresentacion
             this.comboboxProyecto.Name = "comboboxProyecto";
             this.comboboxProyecto.Size = new System.Drawing.Size(162, 21);
             this.comboboxProyecto.TabIndex = 51;
-            this.comboboxProyecto.SelectedIndexChanged += new System.EventHandler(this.comboboxProyecto_SelectedIndexChanged);
             // 
             // comboboxEstado
             // 

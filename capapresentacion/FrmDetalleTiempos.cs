@@ -19,9 +19,14 @@ namespace capapresentacion
         public FrmDetalleTiempos()
         {
             InitializeComponent();
-            ModoInicial();
-            //habilitar(false);
-            //botonesVisible(false);
+            habilitar(false);
+            botonesVisible(false);
+        }
+
+        public void mostrarTareaCombobox()
+        {
+            comboboxTarea.Items.AddRange(NTiempo.mostrarTareaCombobox().ToArray());
+            comboboxTarea.SelectedIndex = 0;
         }
 
 
@@ -37,8 +42,8 @@ namespace capapresentacion
         //sss
         private void limpiar()
         {
-            this.txtIdTiempo.Text = string.Empty;
-            this.txtTarea.Text = string.Empty;
+            this.txtIdTiempo.Text = string.Empty;            
+            this.comboboxTarea.Items.Clear();
             this.txtObservaciones.Text = string.Empty;
             this.dtFechaInicio.Text = string.Empty;
             this.dtFechaFin.Text = string.Empty;
@@ -48,104 +53,11 @@ namespace capapresentacion
         private void habilitar(bool valor)
         {
             this.txtIdTiempo.ReadOnly = true;
-            this.txtTarea.ReadOnly = !valor;
+            this.comboboxTarea.Enabled = valor;
             this.txtObservaciones.ReadOnly = !valor;
             this.dtFechaInicio.Enabled = valor;
             this.dtFechaFin.Enabled = valor;
             this.txtMinutos.Enabled = !valor;//TODO cambiar a label y setear valor
-        }
-
-        private void ModoInicial()
-        {
-            //Casillas
-            limpiar();
-            this.txtIdTiempo.ReadOnly = true;
-            this.txtTarea.ReadOnly = true;
-            this.txtObservaciones.ReadOnly = true;
-            this.dtFechaInicio.Enabled = false;
-            this.dtFechaFin.Enabled = false;
-            this.txtMinutos.ReadOnly = true;//TODO cambiar a label y setear valor
-
-            //Botones
-            btnGuardar.Visible = false;
-            btnCancelar.Visible = true;
-            btnEditar.Visible = false;
-            btnNuevo.Visible = true;
-        }
-
-        private void ModoNuevo()
-        {
-            //Casillas
-            limpiar();
-            this.txtIdTiempo.ReadOnly = true;
-            this.txtTarea.ReadOnly = false;
-            this.txtObservaciones.ReadOnly = false;
-            this.dtFechaInicio.Enabled = true;
-            this.dtFechaFin.Enabled = true;
-            this.txtMinutos.ReadOnly = true;//TODO cambiar a label y setear valor
-
-            //Botones
-            btnGuardar.Visible = true;
-            btnCancelar.Visible = true;
-            btnEditar.Visible = false;
-            btnNuevo.Visible = false;
-        }
-
-
-        private void ModoVisualizar()
-        {
-            //Casillas
-            
-            this.txtIdTiempo.ReadOnly = true;
-            this.txtTarea.ReadOnly = true;
-            this.txtObservaciones.ReadOnly = true;
-            this.dtFechaInicio.Enabled = false;
-            this.dtFechaFin.Enabled = false;
-            this.txtMinutos.ReadOnly = true; ;//TODO cambiar a label y setear valor
-
-            //Botones
-            btnNuevo.Visible = true;
-            btnEditar.Visible = true;
-            btnGuardar.Visible = false;
-            btnCancelar.Visible = false;
-            
-        }
-
-        private void ModoEditar()
-        {
-            //Casillas
-
-            this.txtIdTiempo.ReadOnly = true;
-            this.txtTarea.ReadOnly = true;
-            this.txtObservaciones.ReadOnly = true;
-            this.dtFechaInicio.Enabled = false;
-            this.dtFechaFin.Enabled = false;
-            this.txtMinutos.ReadOnly = true; ;//TODO cambiar a label y setear valor
-
-            //Botones
-            btnNuevo.Visible = false;
-            btnEditar.Visible = false;
-            btnGuardar.Visible = true;
-            btnCancelar.Visible = true;
-
-        }
-
-        private void ModoCancelar()
-        {
-            //Casillas
-            limpiar();
-            this.txtIdTiempo.ReadOnly = true;
-            this.txtTarea.ReadOnly = false;
-            this.txtObservaciones.ReadOnly = false;
-            this.dtFechaInicio.Enabled = false;
-            this.dtFechaFin.Enabled = false;
-            this.txtMinutos.Enabled = true;//TODO cambiar a label y setear valor
-
-            //Botones
-            btnGuardar.Visible = true;
-            btnCancelar.Visible = true;
-            btnEditar.Visible = true;
-            btnNuevo.Visible = false;
         }
 
         private void botonesVisible(bool estado)
@@ -154,7 +66,7 @@ namespace capapresentacion
             btnCancelar.Visible = estado;
             btnEditar.Visible = !estado;
             btnNuevo.Visible = !estado;
-            //txtObservaciones.Enabled = estado;
+            
         }
 
         private void botones()
@@ -194,7 +106,10 @@ namespace capapresentacion
         private void btnNuevo_Click(object sender, EventArgs e)
         {
             esnuevo = true;
-            ModoNuevo();
+            limpiar();
+            mostrarTareaCombobox();
+            botones();
+            
         }
 
         private void btnGuardar_Click(object sender, EventArgs e)
@@ -205,26 +120,25 @@ namespace capapresentacion
                 //MessageBox.Show("En guardar");
 
                 string rpta = "";
-                if (this.txtTarea.Text==string.Empty)
+                if (this.comboboxTarea.Text==string.Empty)
                 {
                     mensajeerror("Formulario incompleto");
-                    this.iconoerror.SetError(this.txtTarea, "Ingresar Tarea");
+                    this.iconoerror.SetError(this.comboboxTarea, "Ingresar Tarea");
                 }
                 else
                 {
                     if (esnuevo)
                     {
                         rpta = NTiempo.insertartiempo(
-                        this.txtTarea.Text.Trim().ToUpper(),
+                        this.comboboxTarea.Text.Trim().ToUpper(),
                         Convert.ToDateTime(this.dtFechaInicio.Value),
                         Convert.ToDateTime(this.dtFechaFin.Value),
                         this.txtObservaciones.Text.Trim());
                     }
                     else
                     {
-                        MessageBox.Show("Entrando en else editar");
                         rpta = NTiempo.editartiempo(Convert.ToInt32(this.txtIdTiempo.Text),
-                            this.txtTarea.Text.Trim(), 
+                            this.comboboxTarea.Text.Trim(), 
                             Convert.ToDateTime(this.dtFechaInicio.Value),
                             Convert.ToDateTime(this.dtFechaFin.Value), 
                             this.txtObservaciones.Text.Trim());
@@ -249,8 +163,9 @@ namespace capapresentacion
 
                     this.esnuevo = false;
                     this.eseditar = false;
-                    ModoVisualizar();
-                    
+                   // botones();
+                    this.limpiar();
+
                 }
             }
             catch (Exception ex)
@@ -274,9 +189,8 @@ namespace capapresentacion
 
         private void btnCancelar_Click(object sender, EventArgs e)
         {
-            // botones();
-            //limpiar();
-            ModoInicial();
+            botones();
+            limpiar();
             this.Hide();
         }
 
@@ -289,7 +203,9 @@ namespace capapresentacion
         {
 
             this.txtIdTiempo.Text = id;
-            this.txtTarea.Text = id_tarea;            
+           // this.txtTarea.Text = id_tarea;
+            comboboxTarea.Items.Add(id_tarea);
+            comboboxTarea.SelectedIndex = 0;
             this.dtFechaInicio.Text = fecha_inicio;
             this.dtFechaFin.Text = fecha_fin;
             this.txtObservaciones.Text = observaciones;
@@ -324,7 +240,7 @@ namespace capapresentacion
                 //}
 
                 rpta = NTiempo.buscarid(
-                   this.txtTarea.Text.Trim().ToUpper(),
+                   this.comboboxTarea.Text.Trim().ToUpper(),
                    Convert.ToDateTime(this.dtFechaInicio.Value),
                    Convert.ToDateTime(this.dtFechaFin.Value),
                    this.txtObservaciones.Text.Trim());

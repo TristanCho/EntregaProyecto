@@ -56,6 +56,13 @@ namespace capanegocio
             return objeto.eliminartiempo(objeto);
         }
 
+        public static string[] mostrarTareaCombobox()
+        {
+            DTiempo objeto = new DTiempo();
+
+            return objeto.mostrarTareaCombobox(objeto);
+        }
+
         public static string buscarid(string tarea, DateTime fecha_inicio, DateTime fecha_fin, string observaciones)
         {
             DTiempoid objeto = new DTiempoid();

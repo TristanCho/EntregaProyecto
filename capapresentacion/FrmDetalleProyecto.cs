@@ -66,12 +66,20 @@ namespace capapresentacion
 
         private void botones()
         {
-            if(esnuevo || this.eseditar)
+            if(esnuevo)
             {
                 habilitar(true);
                 btnNuevo.Enabled = false;
                 btnGuardar.Enabled = true;
                 btnEditar.Enabled = false;
+                btnCancelar.Enabled = true;
+            }
+            else if (eseditar)
+            {
+                habilitar(true);
+                btnNuevo.Enabled = false;
+                btnGuardar.Enabled = true;
+                btnEditar.Enabled = true;
                 btnCancelar.Enabled = true;
             }
             else
@@ -84,7 +92,6 @@ namespace capapresentacion
             }
         }
 
-      
         private void FrmDetalleProyecto_Load(object sender, EventArgs e)
         {
             this.botones();
@@ -135,13 +142,12 @@ namespace capapresentacion
                     else
                     {
 
-                        rpta = NProyecto.editarproyecto(Convert.ToInt32(this.txtIdProyecto.Text),this.txtTituloProyecto.Text.Trim().ToUpper(), this.txtDescripcionProyecto.Text.Trim(), this.txtObservacionesProyecto.Text.Trim(), Convert.ToDateTime(this.dtFechaProyecto.Value));
-                        //rpta = NProyecto.editarproyecto(
-                        //    Convert.ToInt32(this.txtIdProyecto.Text),
-                        //    this.txtTituloProyecto.Text.Trim().ToUpper(),
-                        //    this.txtObservacionesProyecto.Text.Trim(),
-                        //    this.dtFechaProyecto.Value);
-
+                        rpta = NProyecto.editarproyecto(
+                            Convert.ToInt32(this.txtIdProyecto.Text),
+                            this.txtTituloProyecto.Text.Trim().ToUpper(), 
+                            this.txtDescripcionProyecto.Text.Trim(), 
+                            this.txtObservacionesProyecto.Text.Trim(), 
+                            Convert.ToDateTime(this.dtFechaProyecto.Value));
                     }
 
                     if (rpta.Equals("OK"))
@@ -149,10 +155,13 @@ namespace capapresentacion
                         if (esnuevo)
                         {
                             this.mensajeok("Se ha creado el proyecto satisfactoriamente");
+                            limpiar();
+                            
                         }
                         else
                         {
                             this.mensajeok("Se ha editado el proyecto satisfactoriamente");
+                            limpiar();
                         }
                         
                     }
@@ -248,12 +257,6 @@ namespace capapresentacion
                         this.mensajeerror(rpta);
                     }
                 }
-
-                /*if (aux < 1)
-                {
-                    MessageBox.Show("No haz seleccionado ningún proyecto", "Eliminar Proyecto", MessageBoxButtons.OKCancel, MessageBoxIcon.Warning);
-                }
-                this.mostrarproyectos();*/
             }
             catch (Exception ex)
             {

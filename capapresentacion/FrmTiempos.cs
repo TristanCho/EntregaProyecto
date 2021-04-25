@@ -198,5 +198,7 @@ namespace capapresentacion
         {
             this.buscarTiempo(this.txtBuscarTiempo.Text);
         }
+
+        
     }
 }
