@@ -1,0 +1,215 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{44043E91-D6A6-4F44-93B7-CA9544541D57}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>capapresentacion</RootNamespace>
+    <AssemblyName>capapresentacion</AssemblyName>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <Deterministic>true</Deterministic>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="FontAwesome.Sharp, Version=5.15.3.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\FontAwesome.Sharp.5.15.3\lib\net472\FontAwesome.Sharp.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.DirectoryServices" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="DInformacionProyecto.cs" />
+    <Compile Include="DInformacionTarea.cs" />
+    <Compile Include="FrmAplicacion.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmAplicacion.Designer.cs">
+      <DependentUpon>FrmAplicacion.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmDetalleTiempos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmDetalleTiempos.Designer.cs">
+      <DependentUpon>FrmDetalleTiempos.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmProyecto.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmProyecto.Designer.cs">
+      <DependentUpon>FrmProyecto.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmTarea.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmTarea.Designer.cs">
+      <DependentUpon>FrmTarea.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmTareasPersonales.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmTareasPersonales.Designer.cs">
+      <DependentUpon>FrmTareasPersonales.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmTiempos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmTiempos.Designer.cs">
+      <DependentUpon>FrmTiempos.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Login.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Login.Designer.cs">
+      <DependentUpon>Login.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Widget.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Widget.designer.cs">
+      <DependentUpon>Widget.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmDetalleAplicacion.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmDetalleAplicacion.Designer.cs">
+      <DependentUpon>FrmDetalleAplicacion.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmDetalleProyecto.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmDetalleProyecto.Designer.cs">
+      <DependentUpon>FrmDetalleProyecto.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmDetallesTareasPersonales.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmDetallesTareasPersonales.Designer.cs">
+      <DependentUpon>FrmDetallesTareasPersonales.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmDetalleTarea.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmDetalleTarea.Designer.cs">
+      <DependentUpon>FrmDetalleTarea.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmPrincipal.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmPrincipal.Designer.cs">
+      <DependentUpon>FrmPrincipal.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\capadatos\capadatos.csproj">
+      <Project>{67A60693-E78F-465B-81F4-6278CE35E0D4}</Project>
+      <Name>capadatos</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\capanegocio\capanegocio.csproj">
+      <Project>{5e2b562c-8869-4f4f-8aa5-72fb698b1026}</Project>
+      <Name>capanegocio</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="FrmAplicacion.resx">
+      <DependentUpon>FrmAplicacion.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmDetalleTiempos.resx">
+      <DependentUpon>FrmDetalleTiempos.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmProyecto.resx">
+      <DependentUpon>FrmProyecto.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmTarea.resx">
+      <DependentUpon>FrmTarea.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmTareasPersonales.resx">
+      <DependentUpon>FrmTareasPersonales.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmTiempos.resx">
+      <DependentUpon>FrmTiempos.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Login.resx">
+      <DependentUpon>Login.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Widget.resx">
+      <DependentUpon>Widget.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmDetalleAplicacion.resx">
+      <DependentUpon>FrmDetalleAplicacion.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmDetalleProyecto.resx">
+      <DependentUpon>FrmDetalleProyecto.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmDetallesTareasPersonales.resx">
+      <DependentUpon>FrmDetallesTareasPersonales.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmDetalleTarea.resx">
+      <DependentUpon>FrmDetalleTarea.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmPrincipal.resx">
+      <DependentUpon>FrmPrincipal.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Content\font-awesome.css" />
+    <Content Include="Content\font-awesome.min.css" />
+    <Content Include="fonts\fontawesome-webfont.svg" />
+    <Content Include="Imagenes\addNew.png" />
+    <None Include="Imagenes\reloj.png" />
+    <None Include="Imagenes\concepto-tiempo_24911-16705.jpg" />
+    <Content Include="Imagenes\DeleteButton.png" />
+    <None Include="Imagenes\flechas.png" />
+    <Content Include="Imagenes\iconPlay.png" />
+    <Content Include="Imagenes\iconReloj.ico" />
+    <Content Include="Imagenes\iconStop.png" />
+    <Content Include="Imagenes\Lupa.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="fonts\fontawesome-webfont.eot" />
+    <Content Include="fonts\fontawesome-webfont.ttf" />
+    <Content Include="fonts\fontawesome-webfont.woff" />
+    <Content Include="fonts\fontawesome-webfont.woff2" />
+    <Content Include="fonts\FontAwesome.otf" />
+    <None Include="packages.config" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>
