@@ -12,6 +12,8 @@ using System.Collections;
 using System.Diagnostics;
 using System.Runtime.InteropServices;
 using System.Timers;
+using capadatos;
+using capanegocio;
 
 namespace capapresentacion
 {
@@ -21,8 +23,8 @@ namespace capapresentacion
         System.Timers.Timer temporizador;
         int hora, minuto, segundo;
 
-        SqlConnection con = new SqlConnection("Data Source=MSI\\SQLMSI;Initial Catalog=IlernaV2;Integrated Security=False;User Id=winplus;Password=Pbjjajlp5h4m1");
-        // SqlConnection con = new SqlConnection("Data Source=PCCRISTHIAN\\SQLEXPRESS;Initial Catalog=IlernaV2;Integrated Security=False;User Id=winplus;Password=Pbjjajlp5h4m1");
+        //SqlConnection con = new SqlConnection("Data Source=MSI\\SQLMSI;Initial Catalog=IlernaV2;Integrated Security=False;User Id=winplus;Password=Pbjjajlp5h4m1");
+         SqlConnection con = new SqlConnection("Data Source=PCCRISTHIAN\\SQLEXPRESS;Initial Catalog=IlernaV2;Integrated Security=False;User Id=winplus;Password=Pbjjajlp5h4m1");
         
         public Widget()
         {
@@ -80,32 +82,22 @@ namespace capapresentacion
             try
             {
                 con.Open();
-               SqlCommand query = new SqlCommand("SELECT* FROM Tareas order by fecha_creacion desc", con);
-            
+               SqlCommand query = new SqlCommand("SELECT* FROM Tareas where id_tecnico=@id order by fecha_creacion desc", con);
+                query.Parameters.Add("@id", SqlDbType.VarChar).Value = DLogin.id;
 
                 SqlDataReader reader;
                 reader = query.ExecuteReader();
                 DataTable dt = new DataTable();
                 dt.Columns.Add("titulo", typeof(string));
-                ///dt.Columns.Add("descripcion", typeof(string));
-                //dt.Columns.Add("id", typeof(string));
-                //dt.Columns.Add("titulo", typeof(string));
 
-                //dt.Columns.Add("codigo", typeof(string));
-                //dt.Columns.Add("nombre", typeof(string));
                 dt.Load(reader);
 
 
-                //listaTareasPersonales.ValueMember = "descripcion";
                 listaTareasPersonales.DisplayMember = "titulo";
-                ///listaTareasPersonales.DisplayMember = "descripcion";
-
-                //comboBox1.ValueMember = "codigo";
-                //comboBox1.DisplayMember = "nombre";
+                listaTareasPersonales.ValueMember = "titulo";
 
                 listaTareasPersonales.DataSource = dt;
 
-                //Console.WriteLine(comboBox1.SelectedValue);
                 con.Close();
             }
             catch (Exception)
@@ -239,7 +231,9 @@ namespace capapresentacion
         private void botonApagar_Click(object sender, EventArgs e)
         {
             pararCronometro();
-           // MessageBox.Show("Horas hechas : " + calculaHoras(hora_inicio, hora_fin));
+            NWidget nw = new NWidget();
+            nw.insertaTiempoTarea(listaTareasPersonales.SelectedValue.ToString(), TiempoStatic.fecha_inicio);
+
         }
         private TimeSpan calculaHoras(TimeSpan hora_inicio, TimeSpan hora_fin)
         {
@@ -249,11 +243,68 @@ namespace capapresentacion
         {
             iniciaCronometro();
             
-        }
 
+            TiempoStatic.fecha_inicio = DateTime.Now;
+
+            //NWidget nw = new NWidget();
+            //nw.sacaIdComboboxSeleccionado("PRUBA222");
+            //Console.WriteLine(sacaIdComboboxSeleccionado("listaTareasPersonales.SelectedValue.ToString()));
+            //Console.WriteLine(nw.sacaIdComboboxSeleccionado(listaTareasPersonales.SelectedValue.ToString()));
+            //nw.insertaTiempoTarea(listaTareasPersonales.SelectedValue.ToString(), DateTime.Now);
+            //Console.WriteLine(listaTareasPersonales.SelectedValue.ToString());
+
+
+        }
+        /*
+        public string sacaIdComboboxSeleccionado(String titulo)
+        {
+            string _tecnicoId = "";
+            DataTable dtresultado = new DataTable("tareas");
+            try
+            {
+
+                con.Open();
+                SqlCommand SqlCmd = new SqlCommand();
+                SqlCmd.Connection = con;
+                SqlCmd.CommandText = "spmostrar_tarea_widget";
+                SqlCmd.CommandType = CommandType.StoredProcedure;
+
+                //consulta del usuario
+                SqlParameter ParTitulo = new SqlParameter();
+                ParTitulo.ParameterName = "@titulo";
+                ParTitulo.SqlDbType = SqlDbType.VarChar;
+                ParTitulo.Size = 20;
+                ParTitulo.Value = titulo; //aqui va el titulo;
+                SqlCmd.Parameters.Add(ParTitulo);
+
+                SqlDataAdapter sqladap = new SqlDataAdapter(SqlCmd);
+                sqladap.Fill(dtresultado);//es el que se encarga de rellenar nuestra tabla con el procedimiento almacenado
+                
+                _tecnicoId=dtresultado.Rows.OfType<DataRow>().Select(k => k[0].ToString()).First();
+
+
+            }
+            catch (Exception)
+            {
+                dtresultado = null;
+            }
+            finally
+            {
+               
+                con.Close();
+            }
+
+
+
+
+            return _tecnicoId;
+        }*/
         private void iniciaCronometro()
         {
             temporizador.Start();
+            //inserta
+
+            //sacaId();
             /*
             if (listaTareasPersonales.SelectedItem != null)
             {

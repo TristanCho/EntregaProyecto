@@ -8,7 +8,7 @@ using System.Data.SqlClient;
 
 namespace capadatos
 {
-    class DWidget
+    public class DWidget
     {
         
         private string _tarea;
@@ -54,6 +54,52 @@ namespace capadatos
             return dtresultado;
         }
 
+        public string sacaIdComboboxSeleccionado(String titulo)
+        {
+            string idTarea = "";
+            DataTable dtresultado = new DataTable("tareas");
+            SqlConnection SqlCon = new SqlConnection();
+            try
+            {
+
+                SqlCon.ConnectionString = Conexion.cn;
+                SqlCon.Open();
+                SqlCommand SqlCmd = new SqlCommand();
+                SqlCmd.Connection = SqlCon;
+                SqlCmd.CommandText = "spmostrar_tarea_widget";
+                SqlCmd.CommandType = CommandType.StoredProcedure;
+
+                //consulta del usuario
+                SqlParameter ParTitulo = new SqlParameter();
+                ParTitulo.ParameterName = "@titulo";
+                ParTitulo.SqlDbType = SqlDbType.VarChar;
+                ParTitulo.Size = 20;
+                ParTitulo.Value = titulo; //aqui va el titulo;
+                SqlCmd.Parameters.Add(ParTitulo);
+
+                SqlDataAdapter sqladap = new SqlDataAdapter(SqlCmd);
+                sqladap.Fill(dtresultado);//es el que se encarga de rellenar nuestra tabla con el procedimiento almacenado
+
+                idTarea = dtresultado.Rows.OfType<DataRow>().Select(k => k[0].ToString()).First();
+
+
+            }
+            catch (Exception)
+            {
+                dtresultado = null;
+            }
+            finally
+            {
+
+                if (SqlCon.State == ConnectionState.Open) SqlCon.Close();
+            }
+
+
+
+
+            return idTarea;
+        }
+
         //Método buscar proyecto por codigo
         public DataTable buscartiempo(DTiempo tiempo)
         {
@@ -94,7 +140,7 @@ namespace capadatos
             return dtresultado;
         }
 
-        public string insertartiempo(DTiempo tiempo)
+        public string insertartiempo(String titulo,DateTime fechaInicio)
         {
             string rpta = "";
             SqlConnection SqlCon = new SqlConnection();
@@ -113,30 +159,32 @@ namespace capadatos
                 /*
                 SqlParameter ParId = new SqlParameter();
                 ParId.ParameterName = "@id";
-                ParId.SqlDbType = SqlDbType.Int;
+                ParId.SqlDbType = SqlDbType.NText;
                 ParId.Direction = ParameterDirection.Output;
+                ParId.Value = id;
                 SqlCmd.Parameters.Add(ParId);
                 */
 
                 //id_tarea
                 SqlParameter ParIdTarea = new SqlParameter();
-                ParIdTarea.ParameterName = "@id_tarea";
+                ParIdTarea.ParameterName = "@tarea";
                 ParIdTarea.SqlDbType = SqlDbType.NText;
                 ParIdTarea.Size = 1024;
-                ParIdTarea.Value = tiempo.Tarea;
+                ParIdTarea.Value = titulo;
                 //Posiblemente tenga que cambiar el tipo de datos a string por que desde el combobox me llegará un string
                 SqlCmd.Parameters.Add(ParIdTarea);
 
-
+                /* La fecha de inicio la inserta la BD automaticamente
                 //fecha_inicio
+                */
                 SqlParameter ParFechaInicio = new SqlParameter();
                 ParFechaInicio.ParameterName = "@fecha_inicio";
                 ParFechaInicio.SqlDbType = SqlDbType.SmallDateTime;
                 //ParFecha.Size = 1024;
-                ParFechaInicio.Value = tiempo.Fecha_inicio;
+                ParFechaInicio.Value = fechaInicio;
                 SqlCmd.Parameters.Add(ParFechaInicio);
-
-
+                
+                /*
                 //fecha_fin
                 SqlParameter ParFechaFin = new SqlParameter();
                 ParFechaFin.ParameterName = "@fecha_fin";
@@ -144,7 +192,7 @@ namespace capadatos
                 //ParFecha.Size = 1024;
                 ParFechaFin.Value = tiempo.Fecha_fin;
                 SqlCmd.Parameters.Add(ParFechaFin);
-
+                */
                 
                 rpta = SqlCmd.ExecuteNonQuery() == 1 ? "OK" : "No es posible insertar el tiempo";
 

@@ -13,6 +13,7 @@ namespace capadatos
         public static string usuario;
         public static string conexionBD;
         public static string tecnico;
+        public static string id;
 
         public static void sacaTecnico(String user)
         {
@@ -41,7 +42,7 @@ namespace capadatos
 
 
                 tecnico = dtresultado.Rows.OfType<DataRow>().Select(k => k[0].ToString()).First();
-                Console.WriteLine(tecnico + " este es el tecnico, estamos en el procedure");
+                id = dtresultado.Rows.OfType<DataRow>().Select(k => k[1].ToString()).First();
 
 
             }

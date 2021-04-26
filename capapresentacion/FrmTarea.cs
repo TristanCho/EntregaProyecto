@@ -143,7 +143,7 @@ namespace capapresentacion
                 DInformacionTarea.dataListTareas = dataListTareas;
                 DInformacionTarea.index = this.dataListTareas.CurrentRow.Index;
                 DInformacionTarea.detalleTarea = detalleTarea;
-
+                
                 detalleTarea.visualizaDatos(
                     Convert.ToString(this.dataListTareas.CurrentRow.Cells["id"].Value),
                     Convert.ToString(this.dataListTareas.CurrentRow.Cells["proyecto"].Value),

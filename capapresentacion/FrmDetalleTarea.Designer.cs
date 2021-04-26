@@ -282,7 +282,7 @@ namespace capapresentacion
             // 
             this.ltec.AutoSize = true;
             this.ltec.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.ltec.Location = new System.Drawing.Point(609, 12);
+            this.ltec.Location = new System.Drawing.Point(609, 22);
             this.ltec.Name = "ltec";
             this.ltec.Size = new System.Drawing.Size(57, 13);
             this.ltec.TabIndex = 57;
@@ -291,7 +291,7 @@ namespace capapresentacion
             // lTecnico
             // 
             this.lTecnico.AutoSize = true;
-            this.lTecnico.Location = new System.Drawing.Point(672, 12);
+            this.lTecnico.Location = new System.Drawing.Point(672, 22);
             this.lTecnico.Name = "lTecnico";
             this.lTecnico.Size = new System.Drawing.Size(0, 13);
             this.lTecnico.TabIndex = 58;

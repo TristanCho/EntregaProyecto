@@ -48,7 +48,7 @@ namespace capapresentacion
                     while (oReader.Read())
                     {                       
                         existe = oReader["existe"].ToString();
-                        Console.WriteLine("existe");
+                        Console.WriteLine(usuario.Text+" existe");
                     }
                 }
                 if (existe.Equals("1"))
