@@ -22,7 +22,7 @@ namespace capanegocio
             objeto.Textobuscar = textobuscar;
             return objeto.buscarproyecto(objeto);
         }
-        public static string insertarproyecto(string titulo, string observaciones,string descripcion, DateTime fecha)
+        public static string insertarproyecto(string titulo, string descripcion,string observaciones, DateTime fecha)
         {
             DProyecto objeto = new DProyecto();
             objeto.Titulo = titulo;

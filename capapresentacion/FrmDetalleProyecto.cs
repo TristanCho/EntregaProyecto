@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using capadatos;
 using capanegocio;
+using WPTT_1._0;
 
 namespace capapresentacion
 {
@@ -17,23 +18,23 @@ namespace capapresentacion
         bool esnuevo = false;
         bool eseditar = false;
         public string idproyecto = "";
+        public FrmPrincipal frmparent;
         public FrmDetalleProyecto()
         {
             InitializeComponent();
-            
+            habilitar(false);
             botonesVisible(false);
         }
         private void mensajeok(string mensaje)
         {
-            MessageBox.Show(mensaje,"Detalle de Proyecto",MessageBoxButtons.OK,MessageBoxIcon.Information);
-            
+            MessageBox.Show(mensaje,"Detalle de Proyecto",MessageBoxButtons.OK,MessageBoxIcon.Information);            
         }
 
         private void mensajeerror(string mensaje)
         {
             MessageBox.Show(mensaje, "Detalle de Proyecto", MessageBoxButtons.OK, MessageBoxIcon.Error);
         }
-        //sss
+       
         private void limpiar()
         {
             this.txtIdProyecto.Text = string.Empty;
@@ -41,7 +42,6 @@ namespace capapresentacion
             this.txtObservacionesProyecto.Text = string.Empty;
             this.txtDescripcionProyecto.Text = string.Empty;
             this.dtFechaProyecto.Text = string.Empty;
-
         }
 
         private void habilitar(bool valor)
@@ -50,8 +50,7 @@ namespace capapresentacion
             this.txtTituloProyecto.ReadOnly = !valor;
             this.txtObservacionesProyecto.ReadOnly = !valor;
             this.txtDescripcionProyecto.ReadOnly = !valor;
-            this.dtFechaProyecto.Enabled = valor;
-            
+            this.dtFechaProyecto.Enabled = valor;            
         }
         
         private void botonesVisible(bool estado)
@@ -90,6 +89,11 @@ namespace capapresentacion
                 btnEditar.Enabled = true;
                 btnCancelar.Enabled = false;
             }
+        }
+
+        internal void setBotonEliminar(bool value)
+        {
+            btnEliminarProyecto.Visible=value;
         }
 
         private void FrmDetalleProyecto_Load(object sender, EventArgs e)
@@ -171,7 +175,9 @@ namespace capapresentacion
    
                     botonesVisible(false);
                     botones();
-                   
+                    this.Hide();
+                    FrmProyecto proyecto = new FrmProyecto();
+                    FrmParent.frmparent.lanzarNuevoElemento(proyecto);
                 }
             }
             catch (Exception ex)
@@ -208,9 +214,10 @@ namespace capapresentacion
             //limpiar();
             //this.Hide();
             setModo("LECTURA");
-            llamaVisualizaDatos();
+            this.Hide();
+            //llamaVisualizaDatos();
         }
-
+        
         public void visualizaDatos(string id, string proyecto, string descripcion, string observaciones,string fecha_creacion)
         {
             
@@ -221,16 +228,7 @@ namespace capapresentacion
             this.dtFechaProyecto.Text = fecha_creacion;
             
         }
-
-        public void llamaVisualizaDatos()
-        {
-            visualizaDatos(
-                Convert.ToString(DInformacionProyecto.dataListProyectos.Rows[DInformacionProyecto.index].Cells["id"].Value),
-                Convert.ToString(DInformacionProyecto.dataListProyectos.Rows[DInformacionProyecto.index].Cells["titulo"].Value),
-                Convert.ToString(DInformacionProyecto.dataListProyectos.Rows[DInformacionProyecto.index].Cells["descripcion"].Value),
-                Convert.ToString(DInformacionProyecto.dataListProyectos.Rows[DInformacionProyecto.index].Cells["observaciones"].Value),
-                Convert.ToString(DInformacionProyecto.dataListProyectos.Rows[DInformacionProyecto.index].Cells["fecha"].Value));            
-        }
+        
         private void btnEliminarProyecto_Click(object sender, EventArgs e)
         {
             
@@ -250,6 +248,7 @@ namespace capapresentacion
                     if (rpta.Equals("OK"))
                     {
                         this.mensajeok("Registro eliminado");
+                            FrmParent.frmparent.AbrirFormulario(new FrmProyecto());
                     }
                     else
                     {

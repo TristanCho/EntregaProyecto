@@ -82,7 +82,6 @@ namespace capapresentacion
                 con.Open();
                SqlCommand query = new SqlCommand("SELECT* FROM Tareas order by fecha_creacion desc", con);
             
-
                 SqlDataReader reader;
                 reader = query.ExecuteReader();
                 DataTable dt = new DataTable();

@@ -12,6 +12,7 @@ using FontAwesome.Sharp;
 
 using capanegocio;
 using capadatos;
+using WPTT_1._0;
 
 namespace capapresentacion
 {
@@ -36,10 +37,11 @@ namespace capapresentacion
             panelMenu.Controls.Add(panelIzquierdo);
             FormBorderStyle = FormBorderStyle.FixedDialog;
             this.Text = string.Empty;
+            FrmParent.frmparent = this;
             //txtnombreusuario.Text = login.Usuario;
             //Console.WriteLine(Login.Usuario+" usuario");
             //this.txtnombreusuario.Text = "dsadasdsas";
-            
+
             //AbrirFormulario(new FrmProyectosl());
 
 
@@ -290,7 +292,8 @@ private void quitarBordes()
         {
             ActivaBoton(sender, RGBColors.color1);
             FrmProyecto proyecto = new FrmProyecto();
-            proyecto.frmparent = this;
+            //proyecto.frmparent = this;
+           //--- FrmParent.frmparent = this;
             AbrirFormulario(proyecto);
             
             
@@ -304,7 +307,7 @@ private void quitarBordes()
         {
             ActivaBoton(sender, RGBColors.color1);
             FrmTarea tareas = new FrmTarea();
-            tareas.frmparent = this;
+           //--- tareas.frmparent = this;
             AbrirFormulario(tareas);
             //AbrirFormulario(new FrmTarea());
         }
@@ -314,7 +317,7 @@ private void quitarBordes()
         {
             ActivaBoton(sender, RGBColors.color1);
             FrmTiempos tiempos = new FrmTiempos();
-            tiempos.frmparent = this;
+           //--- tiempos.frmparent = this;
             AbrirFormulario(tiempos);
 
         }

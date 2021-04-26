@@ -317,7 +317,6 @@ namespace capadatos
 
                 SqlDataAdapter sqladap = new SqlDataAdapter(SqlCmd);//es el que se encarga de rellenar nuestra tabla con el procedimiento almacenado
                 sqladap.Fill(dtresultado);
-
                 array = dtresultado.Rows.OfType<DataRow>().Select(k => k[0].ToString()).ToArray();
             }
             catch (Exception)
@@ -327,121 +326,8 @@ namespace capadatos
             finally
             {
                 if (SqlCon.State == ConnectionState.Open) SqlCon.Close();
-
             }
-
             return array;
-        }
-
-    }
-
-    public class DTiempoid
-    {
-        private int _id;
-        private string _tarea;
-        private DateTime _fecha_inicio;
-        private DateTime _fecha_fin;
-        private string _observaciones;
-        private string _textobuscar;
-
-        public int Id { get => _id; set => _id = value; }
-
-        public string Tarea { get => _tarea; set => _tarea = value; }
-        
-        public DateTime Fecha_inicio { get => _fecha_inicio; set => _fecha_inicio = value; }
-        public DateTime Fecha_fin { get => _fecha_fin; set => _fecha_fin = value; }
-        public string Observaciones { get => _observaciones; set => _observaciones = value; }
-        public string Textobuscar { get => _textobuscar; set => _textobuscar = value; }
-
-
-        public DTiempoid()
-        {
-
-        }
-        public DTiempoid(string tarea, DateTime fecha_inicio, DateTime fecha_fin, string observaciones)
-        {
-            //_id = id;
-            _tarea = tarea;
-            _fecha_inicio = fecha_inicio;
-            _fecha_fin = fecha_fin;
-            _observaciones = observaciones;
-           // _textobuscar = textobuscar;
-        }
-
-
-        //Método buscar id en tiempos
-        public string getid(DTiempoid tid)
-        {
-
-            string rpta = "";
-            SqlConnection SqlCon = new SqlConnection();
-            try
-            {
-                SqlCon.ConnectionString = Conexion.cn;
-                SqlCon.Open();
-                SqlCommand SqlCmd = new SqlCommand();
-                SqlCmd.Connection = SqlCon;
-                SqlCmd.CommandText = "speditar_tiempo";
-                SqlCmd.CommandType = CommandType.StoredProcedure;
-
-                //Definición de atributos
-
-                //id
-                SqlParameter ParId = new SqlParameter();
-                ParId.ParameterName = "@id";
-                ParId.SqlDbType = SqlDbType.Int;
-                ParId.Value = tid.Id;
-                SqlCmd.Parameters.Add(ParId);
-
-
-                //tarea
-                SqlParameter ParTarea = new SqlParameter();
-                ParTarea.ParameterName = "@tarea";
-                ParTarea.SqlDbType = SqlDbType.NVarChar;
-                ParTarea.Size = 1024;
-                ParTarea.Value = tid.Tarea;
-                SqlCmd.Parameters.Add(ParTarea);
-
-
-                //fecha_inicio
-                SqlParameter ParFechaInicio = new SqlParameter();
-                ParFechaInicio.ParameterName = "@fecha_inicio";
-                ParFechaInicio.SqlDbType = SqlDbType.SmallDateTime;
-                ParFechaInicio.Value = tid.Fecha_inicio;
-                SqlCmd.Parameters.Add(ParFechaInicio);
-
-
-                //fecha_fin
-                SqlParameter ParFechaFin = new SqlParameter();
-                ParFechaFin.ParameterName = "@fecha_fin";
-                ParFechaFin.SqlDbType = SqlDbType.SmallDateTime;
-                //ParFecha.Size = 1024;
-                ParFechaFin.Value = tid.Fecha_fin;
-                SqlCmd.Parameters.Add(ParFechaFin);
-
-                //observaciones
-                SqlParameter ParObservaciones = new SqlParameter();
-                ParObservaciones.ParameterName = "@observaciones";
-                ParObservaciones.SqlDbType = SqlDbType.NText;
-                ParObservaciones.Size = 255;
-                ParObservaciones.Value = tid.Observaciones;
-                SqlCmd.Parameters.Add(ParObservaciones);
-
-
-                rpta = SqlCmd.ExecuteNonQuery() == 1 ? "OK" : "No es posible encontrar el id";
-
-                return rpta;
-            }
-            catch (Exception ex)
-            {
-                rpta = ex.Message;
-            }
-            finally
-            {
-                if (SqlCon.State == ConnectionState.Open) SqlCon.Close();
-
-            }
-            return rpta;
         }
     }
 }

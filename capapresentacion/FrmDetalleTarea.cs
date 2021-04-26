@@ -10,6 +10,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using capadatos;
 using capanegocio;
+using WPTT_1._0;
 
 namespace capapresentacion
 {
@@ -18,7 +19,7 @@ namespace capapresentacion
 
         bool esnuevo = false;
         bool eseditar = false;
-
+        
         public FrmDetalleTarea()
         {
             InitializeComponent();
@@ -70,6 +71,12 @@ namespace capapresentacion
             btnEditar.Visible = !estado;
             btnNuevo.Visible = !estado;
         }
+
+        internal void setBotonEliminar(bool value)
+        {
+            btnEliminarProyecto.Visible = value;
+        }
+
         public void visualizaDatos(string id, string proyecto, string tarea, string descripcion, string observaciones, string fecha_creacion, string estado,string tecnico)
         {
 
@@ -168,9 +175,9 @@ namespace capapresentacion
             botones();
             botonesVisible(false);
             //limpiar();
-            //this.Hide();
+            this.Hide();
             setModo("LECTURA");
-            llamaVisualizaDatos();
+            //llamaVisualizaDatos();
         }
 
         private void mensajeok(string mensaje)
@@ -186,14 +193,7 @@ namespace capapresentacion
 
         private void btnGuardar_Click(object sender, EventArgs e)
         {
-            Console.WriteLine(comboboxProyecto.SelectedItem.ToString());
-            Console.WriteLine(comboboxEstado.SelectedItem.ToString()); ;
-            Console.WriteLine(this.lTecnico.Text); 
-            //Console.WriteLine(Convert.ToInt32(this.txtIdTarea.Text));
-            Console.WriteLine(this.txtTituloTarea.Text.Trim().ToUpper());
-            Console.WriteLine(this.txtDescripcionTarea.Text.Trim());
-            Console.WriteLine(Convert.ToDateTime(this.dtFechaTarea.Value));
-            Console.WriteLine(this.txtObservacionesTarea.Text.Trim());
+
 
             try
             {
@@ -251,6 +251,8 @@ namespace capapresentacion
                     botonesVisible(false);
                     botones();
                     this.limpiar();
+                    FrmTarea tarea = new FrmTarea();
+                    FrmParent.frmparent.lanzarNuevoElemento(tarea);
                 }
             }
 
@@ -300,7 +302,7 @@ namespace capapresentacion
             }
 
         }
-
+        /*
         public void llamaVisualizaDatos()
         {
 
@@ -315,6 +317,6 @@ namespace capapresentacion
                 Convert.ToString(DInformacionTarea.dataListTareas.Rows[DInformacionTarea.index].Cells["tecnico"].Value)
                 );
         }
-     
+     */
     }
 }

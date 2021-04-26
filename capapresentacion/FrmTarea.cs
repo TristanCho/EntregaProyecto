@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using capanegocio;
+using WPTT_1._0;
 
 namespace capapresentacion
 {
@@ -47,11 +48,12 @@ namespace capapresentacion
 
         private void btnNuevo_Click(object sender, EventArgs e)
         {
-            frmparent.lanzarNuevoElemento(detalleTareas);
+            FrmParent.frmparent.lanzarNuevoElemento(detalleTareas);
             detalleTareas.mostrarProyectoCombobox();
             detalleTareas.mostrarEstadoCombobox();
             detalleTareas.setModo("CREACIÓN");
             detalleTareas.setTecnico();
+            detalleTareas.setBotonEliminar(false);
         }
 
         private void ocultarcolumnas()
@@ -110,7 +112,7 @@ namespace capapresentacion
                 Convert.ToString(this.dataListTareas.CurrentRow.Cells["tecnico"].Value)
                 );
             detalleTareas.setModo("LECTURA");
-            frmparent.lanzarNuevoElemento(detalleTareas);
+            FrmParent.frmparent.lanzarNuevoElemento(detalleTareas);
         }
 
         private void cboBuscarTareas_SelectedIndexChanged(object sender, EventArgs e)
@@ -153,7 +155,7 @@ namespace capapresentacion
                     Convert.ToString(this.dataListTareas.CurrentRow.Cells["tecnico"].Value)
                     );
 
-                frmparent.lanzarNuevoElemento(detalleTarea);
+                FrmParent.frmparent.lanzarNuevoElemento(detalleTarea);
 
             }
             catch (Exception)

@@ -10,7 +10,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using capadatos;
 using capanegocio;
-
+using WPTT_1._0;
 
 namespace capapresentacion
 {
@@ -71,8 +71,9 @@ namespace capapresentacion
         private void btnNuevo_Click(object sender, EventArgs e)
         {
             FrmDetalleProyecto detalleproyecto = new FrmDetalleProyecto();
-            frmparent.lanzarNuevoElemento(detalleproyecto);
+            FrmParent.frmparent.lanzarNuevoElemento(detalleproyecto);
             detalleproyecto.setModo("CREACIÓN");
+            detalleproyecto.setBotonEliminar(false);
         }
 
         private void quitarBordes()
@@ -140,8 +141,8 @@ namespace capapresentacion
 
                 //Console.WriteLine(this.dataListProyectos.SelectedRows[2].Cells["id"].Value);
 
-
-                frmparent.lanzarNuevoElemento(detalleProyecto);
+                //detalleProyecto.frmparent = frmparent;
+                FrmParent.frmparent.lanzarNuevoElemento(detalleProyecto);
 
                 detalleProyecto.setModo("LECTURA");
             }
