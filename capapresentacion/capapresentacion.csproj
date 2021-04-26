@@ -55,6 +55,7 @@
     <Compile Include="FrmDetalleTiempos.Designer.cs">
       <DependentUpon>FrmDetalleTiempos.cs</DependentUpon>
     </Compile>
+    <Compile Include="FrmParent.cs" />
     <Compile Include="FrmProyecto.cs">
       <SubType>Form</SubType>
     </Compile>

@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using capadatos;
 using capanegocio;
+using WPTT_1._0;
 
 namespace capapresentacion
 {
@@ -17,6 +18,7 @@ namespace capapresentacion
         bool esnuevo = false;
         bool eseditar = false;
         public string idproyecto = "";
+        public FrmPrincipal frmparent;
         public FrmDetalleProyecto()
         {
             InitializeComponent();
@@ -90,6 +92,11 @@ namespace capapresentacion
                 btnEditar.Enabled = true;
                 btnCancelar.Enabled = false;
             }
+        }
+
+        internal void setBotonEliminar(bool value)
+        {
+            btnEliminarProyecto.Visible=value;
         }
 
         private void FrmDetalleProyecto_Load(object sender, EventArgs e)
@@ -171,7 +178,9 @@ namespace capapresentacion
    
                     botonesVisible(false);
                     botones();
-                   
+                    this.Hide();
+                    FrmProyecto proyecto = new FrmProyecto();
+                    FrmParent.frmparent.lanzarNuevoElemento(proyecto);
                 }
             }
             catch (Exception ex)
@@ -208,9 +217,10 @@ namespace capapresentacion
             //limpiar();
             //this.Hide();
             setModo("LECTURA");
-            llamaVisualizaDatos();
+            this.Hide();
+            //llamaVisualizaDatos();
         }
-
+        
         public void visualizaDatos(string id, string proyecto, string descripcion, string observaciones,string fecha_creacion)
         {
             
@@ -221,7 +231,7 @@ namespace capapresentacion
             this.dtFechaProyecto.Text = fecha_creacion;
             
         }
-
+        /* BORRAR, YA NO SIRVE PORQUE VOLVEMOS AL GRID
         public void llamaVisualizaDatos()
         {
             visualizaDatos(
@@ -230,7 +240,7 @@ namespace capapresentacion
                 Convert.ToString(DInformacionProyecto.dataListProyectos.Rows[DInformacionProyecto.index].Cells["descripcion"].Value),
                 Convert.ToString(DInformacionProyecto.dataListProyectos.Rows[DInformacionProyecto.index].Cells["observaciones"].Value),
                 Convert.ToString(DInformacionProyecto.dataListProyectos.Rows[DInformacionProyecto.index].Cells["fecha"].Value));            
-        }
+        }*/
         private void btnEliminarProyecto_Click(object sender, EventArgs e)
         {
             
@@ -250,6 +260,7 @@ namespace capapresentacion
                     if (rpta.Equals("OK"))
                     {
                         this.mensajeok("Registro eliminado");
+                            FrmParent.frmparent.AbrirFormulario(new FrmProyecto());
                     }
                     else
                     {

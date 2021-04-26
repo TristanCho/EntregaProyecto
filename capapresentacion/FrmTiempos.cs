@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Runtime.InteropServices;
 using System.Windows.Forms;
 using capanegocio;
+using WPTT_1._0;
 
 namespace capapresentacion
 {
@@ -68,7 +69,7 @@ namespace capapresentacion
 
         private void btnNuevo_Click(object sender, EventArgs e)
         {
-            frmparent.lanzarNuevoElemento(new FrmDetalleTiempos());
+            FrmParent.frmparent.lanzarNuevoElemento(new FrmDetalleTiempos());
         }
 
         private void quitarBordes()
@@ -130,7 +131,7 @@ namespace capapresentacion
                     Convert.ToString(this.dataListTiempos.CurrentRow.Cells["observaciones"].Value)
                     );
 
-                frmparent.lanzarNuevoElemento(detalleTiempos);
+                FrmParent.frmparent.lanzarNuevoElemento(detalleTiempos);
 
             }
             catch (Exception ex)
