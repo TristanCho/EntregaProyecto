@@ -229,49 +229,49 @@ namespace capapresentacion
 
         private void btnEditar_Click_1(object sender, EventArgs e)
         {
-            try
-            {
+            //try
+            //{
                 
-                string rpta = "";
-                //if (this.txtTarea.Text == string.Empty)
-                //{
-                //    mensajeerror("Formulario incompleto");
-                //    this.iconoerror.SetError(this.txtTarea, "Ingresar Tarea");
-                //}
+            //    string rpta = "";
+            //    //if (this.txtTarea.Text == string.Empty)
+            //    //{
+            //    //    mensajeerror("Formulario incompleto");
+            //    //    this.iconoerror.SetError(this.txtTarea, "Ingresar Tarea");
+            //    //}
 
-                rpta = NTiempo.buscarid(
-                   this.comboboxTarea.Text.Trim().ToUpper(),
-                   Convert.ToDateTime(this.dtFechaInicio.Value),
-                   Convert.ToDateTime(this.dtFechaFin.Value),
-                   this.txtObservaciones.Text.Trim());
+            //    rpta = NTiempo.buscarid(
+            //       this.comboboxTarea.Text.Trim().ToUpper(),
+            //       Convert.ToDateTime(this.dtFechaInicio.Value),
+            //       Convert.ToDateTime(this.dtFechaFin.Value),
+            //       this.txtObservaciones.Text.Trim());
 
-                if (rpta.Equals("OK"))
-                    {
-                        if (esnuevo)
-                        {
-                            this.mensajeok("Tenemos id");
-                        }
-                        else
-                        {
-                            this.mensajeok("Fallo al encontrar id");
-                        }
+            //    if (rpta.Equals("OK"))
+            //        {
+            //            if (esnuevo)
+            //            {
+            //                this.mensajeok("Tenemos id");
+            //            }
+            //            else
+            //            {
+            //                this.mensajeok("Fallo al encontrar id");
+            //            }
 
-                    }
-                    else
-                    {
-                        this.mensajeerror(rpta);
-                    }
+            //        }
+            //        else
+            //        {
+            //            this.mensajeerror(rpta);
+            //        }
 
-                    //this.esnuevo = false;
-                    //this.eseditar = false;
-                    //ModoVisualizar();
+            //        //this.esnuevo = false;
+            //        //this.eseditar = false;
+            //        //ModoVisualizar();
 
                 
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message, ex.StackTrace);
-            }
+            //}
+            //catch (Exception ex)
+            //{
+            //    MessageBox.Show(ex.Message, ex.StackTrace);
+            //}
         }
     }
 }
