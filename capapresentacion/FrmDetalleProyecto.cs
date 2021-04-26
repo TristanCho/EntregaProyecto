@@ -228,7 +228,16 @@ namespace capapresentacion
             this.dtFechaProyecto.Text = fecha_creacion;
             
         }
-        
+        /* BORRAR, YA NO SIRVE PORQUE VOLVEMOS AL GRID
+        public void llamaVisualizaDatos()
+        {
+            visualizaDatos(
+                Convert.ToString(DInformacionProyecto.dataListProyectos.Rows[DInformacionProyecto.index].Cells["id"].Value),
+                Convert.ToString(DInformacionProyecto.dataListProyectos.Rows[DInformacionProyecto.index].Cells["titulo"].Value),
+                Convert.ToString(DInformacionProyecto.dataListProyectos.Rows[DInformacionProyecto.index].Cells["descripcion"].Value),
+                Convert.ToString(DInformacionProyecto.dataListProyectos.Rows[DInformacionProyecto.index].Cells["observaciones"].Value),
+                Convert.ToString(DInformacionProyecto.dataListProyectos.Rows[DInformacionProyecto.index].Cells["fecha"].Value));            
+        }*/
         private void btnEliminarProyecto_Click(object sender, EventArgs e)
         {
             
