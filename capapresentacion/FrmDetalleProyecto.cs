@@ -22,20 +22,19 @@ namespace capapresentacion
         public FrmDetalleProyecto()
         {
             InitializeComponent();
-            
+            habilitar(false);
             botonesVisible(false);
         }
         private void mensajeok(string mensaje)
         {
-            MessageBox.Show(mensaje,"Detalle de Proyecto",MessageBoxButtons.OK,MessageBoxIcon.Information);
-            
+            MessageBox.Show(mensaje,"Detalle de Proyecto",MessageBoxButtons.OK,MessageBoxIcon.Information);            
         }
 
         private void mensajeerror(string mensaje)
         {
             MessageBox.Show(mensaje, "Detalle de Proyecto", MessageBoxButtons.OK, MessageBoxIcon.Error);
         }
-        //sss
+       
         private void limpiar()
         {
             this.txtIdProyecto.Text = string.Empty;
@@ -43,7 +42,6 @@ namespace capapresentacion
             this.txtObservacionesProyecto.Text = string.Empty;
             this.txtDescripcionProyecto.Text = string.Empty;
             this.dtFechaProyecto.Text = string.Empty;
-
         }
 
         private void habilitar(bool valor)
@@ -52,8 +50,7 @@ namespace capapresentacion
             this.txtTituloProyecto.ReadOnly = !valor;
             this.txtObservacionesProyecto.ReadOnly = !valor;
             this.txtDescripcionProyecto.ReadOnly = !valor;
-            this.dtFechaProyecto.Enabled = valor;
-            
+            this.dtFechaProyecto.Enabled = valor;            
         }
         
         private void botonesVisible(bool estado)
