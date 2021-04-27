@@ -17,6 +17,7 @@ namespace capanegocio
             DLogin.conexionBD = conexionBD;
             DLogin.sacaTecnico(usuario);
             //return login;
+            //
         }
 
 
