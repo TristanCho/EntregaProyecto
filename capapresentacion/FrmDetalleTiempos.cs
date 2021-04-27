@@ -119,6 +119,7 @@ namespace capapresentacion
         {
             esnuevo = true;
             txtObservaciones.Enabled = true;
+            btnEliminarTiempo.Visible = false;
             botonesVisible(true);
             setModo("CREACIÓN");
             botones();
