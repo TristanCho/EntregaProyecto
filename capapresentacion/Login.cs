@@ -55,19 +55,17 @@ namespace capapresentacion
                 {
                     //Console.WriteLine(usuario.Text);
                     FrmPrincipal principal = new FrmPrincipal();
-                    //principal.prueba(usuario.Text);
-                    //DLogin.usuario= usuario.Text;
+
                     NLogin nl = new NLogin();
                     nl.informacionLogin(usuario.Text, "aqui ira la base de datos");
-                    //Console.WriteLine(DLogin.tecnico+ "<- estamos en login y este es el tecnico");
+
                     this.Hide();
-
-                    //principal.Login = login.informacionLogin("prueba","basedeprueba");
-                    //principal.Nombreusuario = login.informacionLogin(usuario.Text);
-                   // principal.Nombreusuario = "cristobal";
-
                     principal.Show();
-                    
+
+                }
+                else
+                {
+                    this.mensajeerror("El usuario o contraseña no coinciden");
                 }
                 con.Close();
             }
@@ -75,6 +73,11 @@ namespace capapresentacion
             {
                 Console.WriteLine("ecxcep");
             }            
+        }
+
+        private void mensajeerror(string mensaje)
+        {
+            MessageBox.Show(mensaje, "Login", MessageBoxButtons.OK, MessageBoxIcon.Error);
         }
 
         private void textBox1_TextChanged(object sender, EventArgs e)
