@@ -69,7 +69,9 @@ namespace capapresentacion
 
         private void btnNuevo_Click(object sender, EventArgs e)
         {
-            FrmParent.frmparent.lanzarNuevoElemento(new FrmDetalleTiempos());
+            FrmDetalleTiempos frmTiempos = new FrmDetalleTiempos();
+            frmTiempos.desbloqueaBotones();
+            FrmParent.frmparent.lanzarNuevoElemento(frmTiempos);
         }
 
         private void quitarBordes()

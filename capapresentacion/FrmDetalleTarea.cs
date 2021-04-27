@@ -53,7 +53,6 @@ namespace capapresentacion
                 this.botones();
                 setModo("EDICION");
                 botonesVisible(true);
-
             }
             else
             {
@@ -112,7 +111,7 @@ namespace capapresentacion
             botonesVisible(true);
             setModo("CREACIÓN");
             botones();
-            limpiar();
+            //limpiar();
         }
         public void setModo(String modo)
         {

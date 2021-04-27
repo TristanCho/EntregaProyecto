@@ -81,6 +81,17 @@ namespace capapresentacion
             }
         }
 
+        public void desbloqueaBotones()
+        {
+            esnuevo = true;
+            txtObservaciones.Enabled = true;
+            btnEliminarTiempo.Visible = false;
+            botonesVisible(true);
+            setModo("CREACIÓN");
+            botones();
+            limpiar();
+        }
+
         internal void setBotonEliminar(bool value)
         {
             btnEliminarTiempo.Visible = value;
