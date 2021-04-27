@@ -18,8 +18,8 @@ namespace capapresentacion
     public partial class Login : Form
     {
 
-        //SqlConnection con = new SqlConnection("Data Source=PCCRISTHIAN\\SQLEXPRESS;Initial Catalog=ilernaV2;Integrated Security=False;User Id=winplus;Password=Pbjjajlp5h4m1");
-        SqlConnection con = new SqlConnection("Data Source=MSI\\SQLMSI;Initial Catalog=ilernaV2;Integrated Security=False;User Id=winplus;Password=Pbjjajlp5h4m1");
+        SqlConnection con = new SqlConnection("Data Source=PCCRISTHIAN\\SQLEXPRESS;Initial Catalog=ilernaV2;Integrated Security=False;User Id=winplus;Password=Pbjjajlp5h4m1");
+        //SqlConnection con = new SqlConnection("Data Source=MSI\\SQLMSI;Initial Catalog=ilernaV2;Integrated Security=False;User Id=winplus;Password=Pbjjajlp5h4m1");
         
         //TODO ENCAPSULACIÓN EN CAPA DE DATOS Y NO DDUPLICAR LA CONEXIÓN
         public Login()
