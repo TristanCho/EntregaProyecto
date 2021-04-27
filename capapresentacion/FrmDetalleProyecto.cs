@@ -108,6 +108,7 @@ namespace capapresentacion
         private void btnNuevo_Click(object sender, EventArgs e)
         {
             crearProyecto();
+            btnEliminarProyecto.Visible = false;
         }
 
         public void crearProyecto() {
