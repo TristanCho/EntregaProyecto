@@ -30,8 +30,6 @@ namespace capapresentacion
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmDetalleTarea));
-            this.txtHoras = new System.Windows.Forms.TextBox();
-            this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.btnCancelar = new System.Windows.Forms.Button();
             this.btnEditar = new System.Windows.Forms.Button();
@@ -56,39 +54,22 @@ namespace capapresentacion
             this.lTecnico = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
-            // txtHoras
-            // 
-            this.txtHoras.Location = new System.Drawing.Point(468, 120);
-            this.txtHoras.Name = "txtHoras";
-            this.txtHoras.Size = new System.Drawing.Size(204, 20);
-            this.txtHoras.TabIndex = 45;
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(375, 113);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(69, 25);
-            this.label4.TabIndex = 44;
-            this.label4.Text = "Horas";
-            this.label4.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(375, 78);
+            this.label3.Font = new System.Drawing.Font("Verdana", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Location = new System.Drawing.Point(497, 84);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(79, 25);
+            this.label3.Size = new System.Drawing.Size(71, 18);
             this.label3.TabIndex = 43;
-            this.label3.Text = "Estado";
+            this.label3.Text = "Estado:";
             this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // btnCancelar
             // 
+            this.btnCancelar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.btnCancelar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnCancelar.Location = new System.Drawing.Point(597, 459);
+            this.btnCancelar.Location = new System.Drawing.Point(679, 459);
             this.btnCancelar.Name = "btnCancelar";
             this.btnCancelar.Size = new System.Drawing.Size(75, 23);
             this.btnCancelar.TabIndex = 42;
@@ -98,8 +79,9 @@ namespace capapresentacion
             // 
             // btnEditar
             // 
+            this.btnEditar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.btnEditar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnEditar.Location = new System.Drawing.Point(148, 459);
+            this.btnEditar.Location = new System.Drawing.Point(93, 459);
             this.btnEditar.Name = "btnEditar";
             this.btnEditar.Size = new System.Drawing.Size(75, 23);
             this.btnEditar.TabIndex = 41;
@@ -109,8 +91,9 @@ namespace capapresentacion
             // 
             // btnGuardar
             // 
+            this.btnGuardar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.btnGuardar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnGuardar.Location = new System.Drawing.Point(468, 459);
+            this.btnGuardar.Location = new System.Drawing.Point(598, 459);
             this.btnGuardar.Name = "btnGuardar";
             this.btnGuardar.Size = new System.Drawing.Size(75, 23);
             this.btnGuardar.TabIndex = 40;
@@ -120,8 +103,9 @@ namespace capapresentacion
             // 
             // btnNuevo
             // 
+            this.btnNuevo.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.btnNuevo.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnNuevo.Location = new System.Drawing.Point(25, 459);
+            this.btnNuevo.Location = new System.Drawing.Point(12, 459);
             this.btnNuevo.Name = "btnNuevo";
             this.btnNuevo.Size = new System.Drawing.Size(75, 23);
             this.btnNuevo.TabIndex = 39;
@@ -132,22 +116,24 @@ namespace capapresentacion
             // dtFechaTarea
             // 
             this.dtFechaTarea.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dtFechaTarea.Location = new System.Drawing.Point(468, 41);
+            this.dtFechaTarea.Location = new System.Drawing.Point(376, 81);
             this.dtFechaTarea.Name = "dtFechaTarea";
-            this.dtFechaTarea.Size = new System.Drawing.Size(204, 20);
+            this.dtFechaTarea.Size = new System.Drawing.Size(99, 20);
             this.dtFechaTarea.TabIndex = 38;
             // 
             // txtTituloTarea
             // 
-            this.txtTituloTarea.Location = new System.Drawing.Point(148, 78);
+            this.txtTituloTarea.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.txtTituloTarea.Location = new System.Drawing.Point(376, 41);
             this.txtTituloTarea.Name = "txtTituloTarea";
             this.txtTituloTarea.ReadOnly = true;
-            this.txtTituloTarea.Size = new System.Drawing.Size(162, 20);
+            this.txtTituloTarea.Size = new System.Drawing.Size(378, 20);
             this.txtTituloTarea.TabIndex = 36;
             // 
             // txtIdTarea
             // 
-            this.txtIdTarea.Location = new System.Drawing.Point(148, 41);
+            this.txtIdTarea.Location = new System.Drawing.Point(123, 41);
             this.txtIdTarea.Name = "txtIdTarea";
             this.txtIdTarea.ReadOnly = true;
             this.txtIdTarea.Size = new System.Drawing.Size(162, 20);
@@ -155,82 +141,87 @@ namespace capapresentacion
             // 
             // txtObservacionesTarea
             // 
-            this.txtObservacionesTarea.Location = new System.Drawing.Point(26, 324);
+            this.txtObservacionesTarea.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.txtObservacionesTarea.Location = new System.Drawing.Point(12, 267);
             this.txtObservacionesTarea.Name = "txtObservacionesTarea";
             this.txtObservacionesTarea.ScrollBars = System.Windows.Forms.RichTextBoxScrollBars.Vertical;
-            this.txtObservacionesTarea.Size = new System.Drawing.Size(651, 113);
+            this.txtObservacionesTarea.Size = new System.Drawing.Size(742, 170);
             this.txtObservacionesTarea.TabIndex = 34;
             this.txtObservacionesTarea.Text = "";
             // 
             // lblObservaciones
             // 
             this.lblObservaciones.AutoSize = true;
-            this.lblObservaciones.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblObservaciones.Location = new System.Drawing.Point(20, 296);
+            this.lblObservaciones.Font = new System.Drawing.Font("Verdana", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblObservaciones.Location = new System.Drawing.Point(12, 246);
             this.lblObservaciones.Name = "lblObservaciones";
-            this.lblObservaciones.Size = new System.Drawing.Size(162, 25);
+            this.lblObservaciones.Size = new System.Drawing.Size(134, 18);
             this.lblObservaciones.TabIndex = 32;
             this.lblObservaciones.Text = "Observaciones:";
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(382, 35);
+            this.label1.Font = new System.Drawing.Font("Verdana", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(308, 80);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(72, 25);
+            this.label1.Size = new System.Drawing.Size(62, 18);
             this.label1.TabIndex = 31;
-            this.label1.Text = "Fecha";
+            this.label1.Text = "Fecha:";
             // 
             // lblTituloProyecto
             // 
             this.lblTituloProyecto.AutoSize = true;
-            this.lblTituloProyecto.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTituloProyecto.Location = new System.Drawing.Point(71, 78);
+            this.lblTituloProyecto.Font = new System.Drawing.Font("Verdana", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTituloProyecto.Location = new System.Drawing.Point(308, 40);
             this.lblTituloProyecto.Name = "lblTituloProyecto";
-            this.lblTituloProyecto.Size = new System.Drawing.Size(65, 25);
+            this.lblTituloProyecto.Size = new System.Drawing.Size(62, 18);
             this.lblTituloProyecto.TabIndex = 30;
-            this.lblTituloProyecto.Text = "Título";
+            this.lblTituloProyecto.Text = "Título:";
             this.lblTituloProyecto.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // lbl_idproyecto
             // 
             this.lbl_idproyecto.AutoSize = true;
-            this.lbl_idproyecto.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbl_idproyecto.Location = new System.Drawing.Point(51, 41);
+            this.lbl_idproyecto.Font = new System.Drawing.Font("Verdana", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl_idproyecto.Location = new System.Drawing.Point(58, 40);
             this.lbl_idproyecto.Name = "lbl_idproyecto";
-            this.lbl_idproyecto.Size = new System.Drawing.Size(85, 25);
+            this.lbl_idproyecto.Size = new System.Drawing.Size(59, 18);
             this.lbl_idproyecto.TabIndex = 29;
-            this.lbl_idproyecto.Text = "IdTarea";
+            this.lbl_idproyecto.Text = "Tarea:";
             this.lbl_idproyecto.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(39, 113);
+            this.label5.Font = new System.Drawing.Font("Verdana", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.Location = new System.Drawing.Point(32, 81);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(97, 25);
+            this.label5.Size = new System.Drawing.Size(85, 18);
             this.label5.TabIndex = 47;
-            this.label5.Text = "Proyecto";
+            this.label5.Text = "Proyecto:";
             this.label5.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // txtDescripcionTarea
             // 
-            this.txtDescripcionTarea.Location = new System.Drawing.Point(25, 203);
+            this.txtDescripcionTarea.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.txtDescripcionTarea.Location = new System.Drawing.Point(12, 159);
             this.txtDescripcionTarea.Name = "txtDescripcionTarea";
             this.txtDescripcionTarea.ScrollBars = System.Windows.Forms.RichTextBoxScrollBars.Vertical;
-            this.txtDescripcionTarea.Size = new System.Drawing.Size(651, 72);
+            this.txtDescripcionTarea.Size = new System.Drawing.Size(742, 72);
             this.txtDescripcionTarea.TabIndex = 50;
             this.txtDescripcionTarea.Text = "";
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(20, 161);
+            this.label2.Font = new System.Drawing.Font("Verdana", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Location = new System.Drawing.Point(9, 128);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(131, 25);
+            this.label2.Size = new System.Drawing.Size(108, 18);
             this.label2.TabIndex = 49;
             this.label2.Text = "Descripción:";
             // 
@@ -238,18 +229,20 @@ namespace capapresentacion
             // 
             this.comboboxProyecto.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboboxProyecto.FormattingEnabled = true;
-            this.comboboxProyecto.Location = new System.Drawing.Point(148, 117);
+            this.comboboxProyecto.Location = new System.Drawing.Point(123, 78);
             this.comboboxProyecto.Name = "comboboxProyecto";
             this.comboboxProyecto.Size = new System.Drawing.Size(162, 21);
             this.comboboxProyecto.TabIndex = 51;
             // 
             // comboboxEstado
             // 
+            this.comboboxEstado.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.comboboxEstado.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboboxEstado.FormattingEnabled = true;
-            this.comboboxEstado.Location = new System.Drawing.Point(468, 84);
+            this.comboboxEstado.Location = new System.Drawing.Point(585, 84);
             this.comboboxEstado.Name = "comboboxEstado";
-            this.comboboxEstado.Size = new System.Drawing.Size(204, 21);
+            this.comboboxEstado.Size = new System.Drawing.Size(169, 21);
             this.comboboxEstado.TabIndex = 52;
             // 
             // lEdicion
@@ -270,7 +263,7 @@ namespace capapresentacion
             this.btnEliminarProyecto.FlatAppearance.BorderColor = System.Drawing.Color.White;
             this.btnEliminarProyecto.FlatAppearance.BorderSize = 0;
             this.btnEliminarProyecto.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnEliminarProyecto.Location = new System.Drawing.Point(640, 162);
+            this.btnEliminarProyecto.Location = new System.Drawing.Point(722, 118);
             this.btnEliminarProyecto.Margin = new System.Windows.Forms.Padding(0);
             this.btnEliminarProyecto.Name = "btnEliminarProyecto";
             this.btnEliminarProyecto.Size = new System.Drawing.Size(32, 28);
@@ -311,8 +304,6 @@ namespace capapresentacion
             this.Controls.Add(this.txtDescripcionTarea);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label5);
-            this.Controls.Add(this.txtHoras);
-            this.Controls.Add(this.label4);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.btnCancelar);
             this.Controls.Add(this.btnEditar);
@@ -336,8 +327,6 @@ namespace capapresentacion
         }
 
         #endregion
-        private System.Windows.Forms.TextBox txtHoras;
-        private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Button btnCancelar;
         private System.Windows.Forms.Button btnEditar;

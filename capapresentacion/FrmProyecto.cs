@@ -72,7 +72,7 @@ namespace capapresentacion
         {
             FrmDetalleProyecto detalleproyecto = new FrmDetalleProyecto();
             FrmParent.frmparent.lanzarNuevoElemento(detalleproyecto);
-            detalleproyecto.setModo("CREACIÓN");
+            detalleproyecto.crearProyecto();
             detalleproyecto.setBotonEliminar(false);
         }
 

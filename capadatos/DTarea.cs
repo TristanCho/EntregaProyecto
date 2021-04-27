@@ -267,7 +267,6 @@ namespace capadatos
             finally
             {
                 if (SqlCon.State == ConnectionState.Open) SqlCon.Close();
-
             }
 
             return array;

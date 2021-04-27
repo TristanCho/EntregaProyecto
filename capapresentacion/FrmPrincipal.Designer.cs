@@ -89,6 +89,7 @@ namespace capapresentacion
             this.Tiempos.Dock = System.Windows.Forms.DockStyle.Top;
             this.Tiempos.FlatAppearance.BorderSize = 0;
             this.Tiempos.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.Tiempos.Font = new System.Drawing.Font("Verdana", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Tiempos.ForeColor = System.Drawing.SystemColors.Control;
             this.Tiempos.IconChar = FontAwesome.Sharp.IconChar.UserClock;
             this.Tiempos.IconColor = System.Drawing.Color.White;
@@ -111,6 +112,7 @@ namespace capapresentacion
             this.Tareas.Dock = System.Windows.Forms.DockStyle.Top;
             this.Tareas.FlatAppearance.BorderSize = 0;
             this.Tareas.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.Tareas.Font = new System.Drawing.Font("Verdana", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Tareas.ForeColor = System.Drawing.SystemColors.Control;
             this.Tareas.IconChar = FontAwesome.Sharp.IconChar.List;
             this.Tareas.IconColor = System.Drawing.Color.White;
@@ -134,7 +136,7 @@ namespace capapresentacion
             this.Proyectos.Dock = System.Windows.Forms.DockStyle.Top;
             this.Proyectos.FlatAppearance.BorderSize = 0;
             this.Proyectos.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.Proyectos.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Proyectos.Font = new System.Drawing.Font("Verdana", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Proyectos.ForeColor = System.Drawing.SystemColors.Control;
             this.Proyectos.IconChar = FontAwesome.Sharp.IconChar.Yelp;
             this.Proyectos.IconColor = System.Drawing.Color.White;
@@ -166,9 +168,9 @@ namespace capapresentacion
             this.reloj_image.BackgroundImage = global::capapresentacion.Properties.Resources.reloj;
             this.reloj_image.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.reloj_image.Image = global::capapresentacion.Properties.Resources.reloj1;
-            this.reloj_image.Location = new System.Drawing.Point(6, 2);
+            this.reloj_image.Location = new System.Drawing.Point(6, 3);
             this.reloj_image.Name = "reloj_image";
-            this.reloj_image.Size = new System.Drawing.Size(188, 137);
+            this.reloj_image.Size = new System.Drawing.Size(188, 136);
             this.reloj_image.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.reloj_image.TabIndex = 0;
             this.reloj_image.TabStop = false;
@@ -194,9 +196,9 @@ namespace capapresentacion
             this.txtnombreusuario.AutoSize = true;
             this.txtnombreusuario.Location = new System.Drawing.Point(456, 17);
             this.txtnombreusuario.Name = "txtnombreusuario";
-            this.txtnombreusuario.Size = new System.Drawing.Size(35, 13);
+            this.txtnombreusuario.Size = new System.Drawing.Size(10, 13);
             this.txtnombreusuario.TabIndex = 27;
-            this.txtnombreusuario.Text = "label1";
+            this.txtnombreusuario.Text = " ";
             // 
             // miminizar
             // 
@@ -242,10 +244,11 @@ namespace capapresentacion
             // textoInicio
             // 
             this.textoInicio.AutoSize = true;
+            this.textoInicio.Font = new System.Drawing.Font("Verdana", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textoInicio.ForeColor = System.Drawing.Color.White;
-            this.textoInicio.Location = new System.Drawing.Point(54, 22);
+            this.textoInicio.Location = new System.Drawing.Point(54, 20);
             this.textoInicio.Name = "textoInicio";
-            this.textoInicio.Size = new System.Drawing.Size(0, 13);
+            this.textoInicio.Size = new System.Drawing.Size(0, 18);
             this.textoInicio.TabIndex = 1;
             // 
             // panelFormulario

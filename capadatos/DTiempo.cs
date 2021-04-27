@@ -40,8 +40,6 @@ namespace capadatos
             _observaciones = observaciones;
             _textobuscar = textobuscar;
         }
-
-
         public DataTable mostrartiempos(DTiempo objeto)
         {
             DataTable dtresultado = new DataTable("tiempos");
@@ -97,8 +95,7 @@ namespace capadatos
 
                 SqlDataAdapter sqladap = new SqlDataAdapter(SqlCmd);
                 sqladap.Fill(dtresultado);//es el que se encarga de rellenar nuestra tabla con el procedimiento almacenado
-
-
+                
             }
             catch (Exception)
             {
@@ -107,7 +104,6 @@ namespace capadatos
             finally
             {
                 if (SqlCon.State == ConnectionState.Open) SqlCon.Close();
-
             }
 
             return dtresultado;
@@ -207,7 +203,7 @@ namespace capadatos
                 SqlParameter ParId = new SqlParameter();
                 ParId.ParameterName = "@id";
                 ParId.SqlDbType = SqlDbType.Int;
-                ParId.Direction = ParameterDirection.Output;//TODO pendiente verificar si es necesario especificar el parámetro de salida
+                ParId.Value = tiempo.Id;
                 SqlCmd.Parameters.Add(ParId);
 
 
@@ -245,8 +241,9 @@ namespace capadatos
                 SqlCmd.Parameters.Add(ParObservaciones);
 
 
-                rpta = SqlCmd.ExecuteNonQuery() == 1 ? "OK" : "No es posible insertar el Registro de tiempo";
+                rpta = SqlCmd.ExecuteNonQuery() == 3 ? "OK" : "No es posible editar el Registro de tiempo";
 
+                
                 return rpta;
             }
             catch (Exception ex)

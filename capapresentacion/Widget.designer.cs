@@ -41,30 +41,30 @@ namespace capapresentacion
             this.miminizar = new System.Windows.Forms.Button();
             this.cerrar = new System.Windows.Forms.Button();
             this.maximizar = new System.Windows.Forms.Button();
-            this.tCronometro = new System.Windows.Forms.TextBox();
             this.botonStart = new System.Windows.Forms.Button();
             this.botonApagar = new System.Windows.Forms.Button();
+            this.lCronometro = new System.Windows.Forms.Label();
             this.contextMenuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
             // listaTareasPersonales
             // 
             this.listaTareasPersonales.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.listaTareasPersonales.Font = new System.Drawing.Font("Verdana", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.listaTareasPersonales.FormattingEnabled = true;
-            this.listaTareasPersonales.Location = new System.Drawing.Point(29, 34);
+            this.listaTareasPersonales.Location = new System.Drawing.Point(29, 35);
             this.listaTareasPersonales.Name = "listaTareasPersonales";
-            this.listaTareasPersonales.Size = new System.Drawing.Size(256, 21);
+            this.listaTareasPersonales.Size = new System.Drawing.Size(256, 26);
             this.listaTareasPersonales.TabIndex = 2;
-            this.listaTareasPersonales.SelectedIndexChanged += new System.EventHandler(this.comboBox2_SelectedIndexChanged);
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Font = new System.Drawing.Font("Verdana", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.label2.Location = new System.Drawing.Point(26, 18);
+            this.label2.Location = new System.Drawing.Point(26, 14);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(112, 13);
+            this.label2.Size = new System.Drawing.Size(172, 18);
             this.label2.TabIndex = 3;
             this.label2.Text = "Tareas Personales";
             this.label2.Click += new System.EventHandler(this.label2_Click);
@@ -149,17 +149,6 @@ namespace capapresentacion
             this.maximizar.UseVisualStyleBackColor = true;
             this.maximizar.Click += new System.EventHandler(this.maximizar_Click);
             // 
-            // tCronometro
-            // 
-            this.tCronometro.Location = new System.Drawing.Point(29, 100);
-            this.tCronometro.Name = "tCronometro";
-            this.tCronometro.ReadOnly = true;
-            this.tCronometro.Size = new System.Drawing.Size(85, 20);
-            this.tCronometro.TabIndex = 32;
-            this.tCronometro.Text = "00:00:00";
-            this.tCronometro.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            this.tCronometro.TextChanged += new System.EventHandler(this.tCronometro_TextChanged);
-            // 
             // botonStart
             // 
             this.botonStart.BackColor = System.Drawing.Color.Transparent;
@@ -188,6 +177,16 @@ namespace capapresentacion
             this.botonApagar.UseVisualStyleBackColor = false;
             this.botonApagar.Click += new System.EventHandler(this.botonApagar_Click);
             // 
+            // lCronometro
+            // 
+            this.lCronometro.AutoSize = true;
+            this.lCronometro.Font = new System.Drawing.Font("Verdana", 21.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lCronometro.Location = new System.Drawing.Point(63, 85);
+            this.lCronometro.Name = "lCronometro";
+            this.lCronometro.Size = new System.Drawing.Size(165, 35);
+            this.lCronometro.TabIndex = 33;
+            this.lCronometro.Text = "00:00:00";
+            // 
             // Widget
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -195,7 +194,7 @@ namespace capapresentacion
             this.BackColor = System.Drawing.Color.DarkOrange;
             this.ClientSize = new System.Drawing.Size(398, 137);
             this.ControlBox = false;
-            this.Controls.Add(this.tCronometro);
+            this.Controls.Add(this.lCronometro);
             this.Controls.Add(this.maximizar);
             this.Controls.Add(this.botonStart);
             this.Controls.Add(this.botonApagar);
@@ -209,6 +208,7 @@ namespace capapresentacion
             this.Opacity = 0.95D;
             this.StartPosition = System.Windows.Forms.FormStartPosition.Manual;
             this.Text = "Form1";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Widget_FormClosing);
             this.Load += new System.EventHandler(this.Form1_Load);
             this.MouseDown += new System.Windows.Forms.MouseEventHandler(this.Form1_MouseDown_1);
             this.contextMenuStrip1.ResumeLayout(false);
@@ -230,7 +230,7 @@ namespace capapresentacion
         private System.Windows.Forms.ToolStripMenuItem modoAplicacionToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem iniciarCronometroToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem pararCronometroToolStripMenuItem;
-        private System.Windows.Forms.TextBox tCronometro;
+        private System.Windows.Forms.Label lCronometro;
     }
 }
 

@@ -8,6 +8,10 @@ namespace capapresentacion
 {
     public static class TiempoStatic
     {
-        public static DateTime fecha_inicio;
+        private static DateTime startDate;
+        private static Boolean isWorking;
+
+        public static DateTime StartDate { get => startDate; set => startDate = value; }
+        public static bool IsWorking { get => isWorking; set => isWorking = value; }
     }
 }

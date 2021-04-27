@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using capanegocio;
+using WPTT_1._0;
 
 namespace capapresentacion
 {
@@ -16,19 +17,13 @@ namespace capapresentacion
         bool esnuevo = false;
         bool eseditar = false;
         public string idtiempo = "";
+        public FrmPrincipal frmparent;
         public FrmDetalleTiempos()
         {
             InitializeComponent();
             habilitar(false);
             botonesVisible(false);
         }
-
-        public void mostrarTareaCombobox()
-        {
-            comboboxTarea.Items.AddRange(NTiempo.mostrarTareaCombobox().ToArray());
-            comboboxTarea.SelectedIndex = 0;
-        }
-
 
         private void mensajeok(string mensaje)
         {
@@ -39,15 +34,14 @@ namespace capapresentacion
         {
             MessageBox.Show(mensaje, "Detalle de Tiempo", MessageBoxButtons.OK, MessageBoxIcon.Error);
         }
-        //sss
+
         private void limpiar()
         {
-            this.txtIdTiempo.Text = string.Empty;            
-            this.comboboxTarea.Items.Clear();
+            this.txtIdTiempo.Text = string.Empty;
             this.txtObservaciones.Text = string.Empty;
             this.dtFechaInicio.Text = string.Empty;
             this.dtFechaFin.Text = string.Empty;
-            this.txtMinutos.Text = string.Empty;
+            
         }
 
         private void habilitar(bool valor)
@@ -57,18 +51,16 @@ namespace capapresentacion
             this.txtObservaciones.ReadOnly = !valor;
             this.dtFechaInicio.Enabled = valor;
             this.dtFechaFin.Enabled = valor;
-            this.txtMinutos.Enabled = !valor;//TODO cambiar a label y setear valor
+           
         }
-
         private void botonesVisible(bool estado)
         {
             btnGuardar.Visible = estado;
             btnCancelar.Visible = estado;
             btnEditar.Visible = !estado;
             btnNuevo.Visible = !estado;
-            
+            txtObservaciones.Enabled = estado;            
         }
-
         private void botones()
         {
             if (esnuevo || this.eseditar)
@@ -89,6 +81,10 @@ namespace capapresentacion
             }
         }
 
+        internal void setBotonEliminar(bool value)
+        {
+            btnEliminarTiempo.Visible = value;
+        }
 
         private void FrmDetalleTiempos_Load(object sender, EventArgs e)
         {
@@ -103,13 +99,19 @@ namespace capapresentacion
             frmPrincipal.Show();
         }
 
+        public void setModo(String modo)
+        {
+            lEdicion.Text = "[MODO " + modo + "]";
+        }
+
         private void btnNuevo_Click(object sender, EventArgs e)
         {
             esnuevo = true;
-            limpiar();
-            mostrarTareaCombobox();
+            txtObservaciones.Enabled = true;
+            botonesVisible(true);
+            setModo("CREACIÓN");
             botones();
-            
+            limpiar();   
         }
 
         private void btnGuardar_Click(object sender, EventArgs e)
@@ -117,8 +119,6 @@ namespace capapresentacion
             
             try
             {
-                //MessageBox.Show("En guardar");
-
                 string rpta = "";
                 if (this.comboboxTarea.Text==string.Empty)
                 {
@@ -161,11 +161,11 @@ namespace capapresentacion
                         this.mensajeerror(rpta);
                     }
 
-                    this.esnuevo = false;
-                    this.eseditar = false;
-                   // botones();
-                    this.limpiar();
-
+                    botonesVisible(false);
+                    botones();
+                    this.Hide();
+                    FrmTiempos tiempos = new FrmTiempos();
+                    FrmParent.frmparent.lanzarNuevoElemento(tiempos);
                 }
             }
             catch (Exception ex)
@@ -180,98 +180,91 @@ namespace capapresentacion
             {
                 this.eseditar = true;
                 this.botones();
+                setModo("EDICIÓN");
+                // txtObservacionesProyecto.Enabled = true;
+                //txtDescripcionProyecto.Enabled = true;
+                //this.txtDescripcionProyecto.Visible = true;
+                botonesVisible(true);
             }
             else
             {
-                this.mensajeerror("selleccione el registro a modificar");
+                this.mensajeerror("seleccione el registro a modificar");
             }
         }
 
         private void btnCancelar_Click(object sender, EventArgs e)
         {
+            esnuevo = false;
+            this.eseditar = false;
             botones();
-            limpiar();
+            botonesVisible(false);
+            //limpiar();
+            //this.Hide();
+            setModo("LECTURA");
             this.Hide();
         }
-
-        private void txtIdProyecto_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
         public void visualizaDatos(string id, string id_tarea, string fecha_inicio, string fecha_fin, string observaciones)
         {
-
             this.txtIdTiempo.Text = id;
-           // this.txtTarea.Text = id_tarea;
-            comboboxTarea.Items.Add(id_tarea);
-            comboboxTarea.SelectedIndex = 0;
+            comboboxTarea.SelectedIndex = comboboxTarea.Items.IndexOf(id_tarea);
             this.dtFechaInicio.Text = fecha_inicio;
             this.dtFechaFin.Text = fecha_fin;
             this.txtObservaciones.Text = observaciones;
-
+        }
+               
+        public void mostrarTareaCombobox()
+        {
+            comboboxTarea.Items.AddRange(NTiempo.mostrarTareaCombobox().ToArray());
+            comboboxTarea.SelectedIndex = 0;
         }
 
-        private void txtObservacionesProyecto_TextChanged(object sender, EventArgs e)
+        private void btnEliminarTiempo_Click(object sender, EventArgs e)
         {
+            if (!lEdicion.Text.Equals(""))
+            {
+                try
+                {
+                    DialogResult opcion;
+                    opcion = MessageBox.Show("¿Desea continuar?", "Eliminar Registro", MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
+                    if (opcion == DialogResult.OK)
+                    {
 
+                        string rpta = "";
+
+                        rpta = NTiempo.eliminartiempo(Convert.ToInt32(txtIdTiempo.Text));
+
+                        if (rpta.Equals("OK"))
+                        {
+                            this.mensajeok("Registro eliminado");
+                            FrmParent.frmparent.AbrirFormulario(new FrmTiempos());
+                        }
+                        else
+                        {
+                            this.mensajeerror("¡Ups!, Algo ha salido mal...");
+                            this.mensajeerror(rpta);
+                        }
+                    }
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message + ex.StackTrace);
+                }
+            }
         }
 
-        private void dtFechaProyecto_ValueChanged(object sender, EventArgs e)
+        private void FrmDetalleTiempos_Load_1(object sender, EventArgs e)
         {
-
+            mostrarTareaCombobox();
         }
 
         private void btnCancelar_Click_1(object sender, EventArgs e)
         {
-
-        }
-
-        private void btnEditar_Click_1(object sender, EventArgs e)
-        {
-            //try
-            //{
-                
-            //    string rpta = "";
-            //    //if (this.txtTarea.Text == string.Empty)
-            //    //{
-            //    //    mensajeerror("Formulario incompleto");
-            //    //    this.iconoerror.SetError(this.txtTarea, "Ingresar Tarea");
-            //    //}
-
-            //    rpta = NTiempo.buscarid(
-            //       this.comboboxTarea.Text.Trim().ToUpper(),
-            //       Convert.ToDateTime(this.dtFechaInicio.Value),
-            //       Convert.ToDateTime(this.dtFechaFin.Value),
-            //       this.txtObservaciones.Text.Trim());
-
-            //    if (rpta.Equals("OK"))
-            //        {
-            //            if (esnuevo)
-            //            {
-            //                this.mensajeok("Tenemos id");
-            //            }
-            //            else
-            //            {
-            //                this.mensajeok("Fallo al encontrar id");
-            //            }
-
-            //        }
-            //        else
-            //        {
-            //            this.mensajeerror(rpta);
-            //        }
-
-            //        //this.esnuevo = false;
-            //        //this.eseditar = false;
-            //        //ModoVisualizar();
-
-                
-            //}
-            //catch (Exception ex)
-            //{
-            //    MessageBox.Show(ex.Message, ex.StackTrace);
-            //}
+            esnuevo = false;
+            this.eseditar = false;
+            botones();
+            botonesVisible(false);
+            setModo("LECTURA");
+            this.Hide();
         }
     }
 }

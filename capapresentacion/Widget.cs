@@ -23,14 +23,13 @@ namespace capapresentacion
         System.Timers.Timer temporizador;
         int hora, minuto, segundo;
 
-        //SqlConnection con = new SqlConnection("Data Source=MSI\\SQLMSI;Initial Catalog=IlernaV2;Integrated Security=False;User Id=winplus;Password=Pbjjajlp5h4m1");
-         SqlConnection con = new SqlConnection("Data Source=PCCRISTHIAN\\SQLEXPRESS;Initial Catalog=IlernaV2;Integrated Security=False;User Id=winplus;Password=Pbjjajlp5h4m1");
+        SqlConnection con = new SqlConnection("Data Source=MSI\\SQLMSI;Initial Catalog=IlernaV2;Integrated Security=False;User Id=winplus;Password=Pbjjajlp5h4m1");
+         //SqlConnection con = new SqlConnection("Data Source=PCCRISTHIAN\\SQLEXPRESS;Initial Catalog=IlernaV2;Integrated Security=False;User Id=winplus;Password=Pbjjajlp5h4m1");
         
         public Widget()
         {
             InitializeComponent();
             convertirWidget();
-
         }
 
         private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
@@ -104,68 +103,34 @@ namespace capapresentacion
             {
 
             }
-
-
-            /*
-            try
-            {
-                con.Open();
-                SqlCommand query = new SqlCommand("select id,titulo from Proyectos", con); 
-
-                //SqlCommand query = new SqlCommand("select codigo,nombre from Personal", con);
-
-                SqlDataReader reader;
-                reader = query.ExecuteReader();
-                DataTable dt = new DataTable();
-
-                dt.Columns.Add("id", typeof(string));
-                dt.Columns.Add("titulo", typeof(string));
-
-                //dt.Columns.Add("codigo", typeof(string));
-                //dt.Columns.Add("nombre", typeof(string));
-                dt.Load(reader);
-
-
-                comboBox1.ValueMember = "id";
-                comboBox1.DisplayMember = "titulo";
-               
-                //comboBox1.ValueMember = "codigo";
-                //comboBox1.DisplayMember = "nombre";
-
-                comboBox1.DataSource = dt;
-
-                //Console.WriteLine(comboBox1.SelectedValue);
-                con.Close();
+            if(TiempoStatic.IsWorking){
+                
             }
-            catch (Exception)
-            {
-
-            }*/
         }
 
         private void OnTimeEvent(object sender, ElapsedEventArgs e)
         {
             Invoke(new Action(() =>
             {
-            segundo += 1;
-            if (segundo == 60)
-            {
-                segundo = 0;
-                minuto += 1;
-            }
-            if (minuto == 60)
-            {
-                minuto = 0;
-                hora += 1;
-            }
-            tCronometro.Text = string.Format("{0}:{1}:{2}",hora.ToString().PadLeft(2, '0'), minuto.ToString().PadLeft(2, '0'),segundo.ToString().PadLeft(2, '0'));
+                /*segundo += 1;
+                if (segundo == 60)
+                {
+                    segundo = 0;
+                    minuto += 1;
+                }
+                if (minuto == 60)
+                {
+                    minuto = 0;
+                    hora += 1;
+                }*/
+                lCronometro.Text = (DateTime.Now - TiempoStatic.StartDate).ToString(@"hh\:mm\:ss");//string.Format("{0}:{1}:{2}",hora.ToString().PadLeft(2, '0'), minuto.ToString().PadLeft(2, '0'),segundo.ToString().PadLeft(2, '0'));
             }));//TODO me ha saltado error cuando desde el widget pongo a rodar el tiempo y luego maximizo el formulario
         }
 
-        private void comboBox2_SelectedIndexChanged(object sender, EventArgs e)
-        {
+        //private void comboBox2_SelectedIndexChanged(object sender, EventArgs e)
+        //{
 
-        }
+        //}
  
         private void notifyIcon1_MouseDoubleClick(object sender, MouseEventArgs e)
         {
@@ -232,7 +197,11 @@ namespace capapresentacion
         {
             pararCronometro();
             NWidget nw = new NWidget();
-            nw.insertaTiempoTarea(listaTareasPersonales.SelectedValue.ToString(), TiempoStatic.fecha_inicio);
+            nw.insertaTiempoTarea(listaTareasPersonales.SelectedValue.ToString(), TiempoStatic.StartDate, DateTime.Now);
+            TiempoStatic.StartDate = DateTime.Now;
+            TiempoStatic.IsWorking = false;
+            botonStart.Visible = true;
+            botonApagar.Visible = false;
 
         }
         private TimeSpan calculaHoras(TimeSpan hora_inicio, TimeSpan hora_fin)
@@ -244,8 +213,10 @@ namespace capapresentacion
             iniciaCronometro();
             
 
-            TiempoStatic.fecha_inicio = DateTime.Now;
-
+            TiempoStatic.StartDate = DateTime.Now;
+            TiempoStatic.IsWorking = true;
+            botonStart.Visible = false;
+            botonApagar.Visible = true;
             //NWidget nw = new NWidget();
             //nw.sacaIdComboboxSeleccionado("PRUBA222");
             //Console.WriteLine(sacaIdComboboxSeleccionado("listaTareasPersonales.SelectedValue.ToString()));
@@ -375,6 +346,11 @@ namespace capapresentacion
         private void iniciarCronometroToolStripMenuItem_Click(object sender, EventArgs e)
         {
             iniciaCronometro();
+        }
+
+        private void Widget_FormClosing(object sender, FormClosingEventArgs e)
+        { 
+            temporizador.Stop();
         }
 
         private void pararCronometroToolStripMenuItem_Click(object sender, EventArgs e)

@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Runtime.InteropServices;
 using System.Windows.Forms;
+using capadatos;
 using capanegocio;
 using WPTT_1._0;
 
@@ -64,7 +65,6 @@ namespace capapresentacion
             this.dataListTiempos.Columns[1].Visible = false;
             this.btnEliminarTiempo.Enabled = false;
             this.cbEliminar.Checked = false;
-
         }
 
         private void btnNuevo_Click(object sender, EventArgs e)
@@ -123,15 +123,16 @@ namespace capapresentacion
             {
                 FrmDetalleTiempos detalleTiempos = new FrmDetalleTiempos();
 
-                detalleTiempos.visualizaDatos(
-                    Convert.ToString(this.dataListTiempos.CurrentRow.Cells["id"].Value),
-                    Convert.ToString(this.dataListTiempos.CurrentRow.Cells["tarea"].Value),
-                    Convert.ToString(this.dataListTiempos.CurrentRow.Cells["fecha_inicio"].Value),
-                    Convert.ToString(this.dataListTiempos.CurrentRow.Cells["fecha_fin"].Value),
-                    Convert.ToString(this.dataListTiempos.CurrentRow.Cells["observaciones"].Value)
-                    );
-
                 FrmParent.frmparent.lanzarNuevoElemento(detalleTiempos);
+                detalleTiempos.setModo("LECTURA");
+
+                detalleTiempos.visualizaDatos(
+                Convert.ToString(this.dataListTiempos.CurrentRow.Cells["id"].Value),
+                Convert.ToString(this.dataListTiempos.CurrentRow.Cells["tarea"].Value),
+                Convert.ToString(this.dataListTiempos.CurrentRow.Cells["fecha_inicio"].Value),
+                Convert.ToString(this.dataListTiempos.CurrentRow.Cells["fecha_fin"].Value),
+                Convert.ToString(this.dataListTiempos.CurrentRow.Cells["observaciones"].Value)
+                );
 
             }
             catch (Exception ex)

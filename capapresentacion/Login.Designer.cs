@@ -36,6 +36,7 @@ namespace capapresentacion
             this.cerrar = new System.Windows.Forms.Button();
             this.password = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // aceptar
@@ -43,30 +44,34 @@ namespace capapresentacion
             this.aceptar.BackColor = System.Drawing.Color.White;
             this.aceptar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.aceptar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.aceptar.Font = new System.Drawing.Font("Verdana", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.aceptar.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.aceptar.Location = new System.Drawing.Point(140, 148);
+            this.aceptar.Location = new System.Drawing.Point(283, 148);
             this.aceptar.Name = "aceptar";
-            this.aceptar.Size = new System.Drawing.Size(100, 23);
-            this.aceptar.TabIndex = 0;
+            this.aceptar.Size = new System.Drawing.Size(100, 26);
+            this.aceptar.TabIndex = 3;
             this.aceptar.Text = "Validar";
             this.aceptar.UseVisualStyleBackColor = false;
             this.aceptar.Click += new System.EventHandler(this.button1_Click);
             // 
             // usuario
             // 
-            this.usuario.Location = new System.Drawing.Point(140, 72);
+            this.usuario.Font = new System.Drawing.Font("Verdana", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.usuario.Location = new System.Drawing.Point(15, 64);
             this.usuario.Name = "usuario";
-            this.usuario.Size = new System.Drawing.Size(100, 20);
+            this.usuario.Size = new System.Drawing.Size(368, 27);
             this.usuario.TabIndex = 1;
+            this.usuario.Text = "cllanos";
             this.usuario.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
             // 
             // label1
             // 
             this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Verdana", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.SystemColors.Control;
-            this.label1.Location = new System.Drawing.Point(137, 56);
+            this.label1.Location = new System.Drawing.Point(12, 43);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(43, 13);
+            this.label1.Size = new System.Drawing.Size(70, 18);
             this.label1.TabIndex = 3;
             this.label1.Text = "Usuario";
             // 
@@ -79,27 +84,42 @@ namespace capapresentacion
             this.cerrar.Location = new System.Drawing.Point(359, 12);
             this.cerrar.Name = "cerrar";
             this.cerrar.Size = new System.Drawing.Size(24, 27);
-            this.cerrar.TabIndex = 25;
+            this.cerrar.TabIndex = 4;
             this.cerrar.Text = "x";
             this.cerrar.UseVisualStyleBackColor = true;
             this.cerrar.Click += new System.EventHandler(this.cerrar_Click);
             // 
             // password
             // 
-            this.password.Location = new System.Drawing.Point(140, 109);
+            this.password.Font = new System.Drawing.Font("Verdana", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.password.Location = new System.Drawing.Point(16, 115);
             this.password.Name = "password";
-            this.password.Size = new System.Drawing.Size(100, 20);
-            this.password.TabIndex = 26;
+            this.password.PasswordChar = '•';
+            this.password.Size = new System.Drawing.Size(367, 27);
+            this.password.TabIndex = 2;
+            this.password.Text = "1234";
             // 
             // label2
             // 
             this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Verdana", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.ForeColor = System.Drawing.SystemColors.Control;
-            this.label2.Location = new System.Drawing.Point(137, 95);
+            this.label2.Location = new System.Drawing.Point(12, 94);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(53, 13);
+            this.label2.Size = new System.Drawing.Size(85, 18);
             this.label2.TabIndex = 27;
             this.label2.Text = "Password";
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Verdana", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.ForeColor = System.Drawing.SystemColors.Control;
+            this.label3.Location = new System.Drawing.Point(12, 9);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(160, 23);
+            this.label3.TabIndex = 28;
+            this.label3.Text = "Autenticación";
             // 
             // Login
             // 
@@ -108,6 +128,7 @@ namespace capapresentacion
             this.BackColor = System.Drawing.Color.DarkOrange;
             this.ClientSize = new System.Drawing.Size(395, 200);
             this.ControlBox = false;
+            this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.password);
             this.Controls.Add(this.cerrar);
@@ -134,5 +155,6 @@ namespace capapresentacion
         private System.Windows.Forms.Button cerrar;
         private System.Windows.Forms.TextBox password;
         private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label label3;
     }
 }

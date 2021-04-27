@@ -24,21 +24,22 @@ namespace capapresentacion
         {
             InitializeComponent();
             botonesVisible(false);
+            habilitar(false);
         }
 
         public void mostrarProyectoCombobox()
         {
             comboboxProyecto.Items.AddRange(NTarea.mostrarProyectoCombobox().ToArray());
             comboboxProyecto.SelectedIndex = 0;
-
         }
 
         public void mostrarEstadoCombobox()
         {
             comboboxEstado.Items.AddRange(NTarea.mostrarEstadoCombobox().ToArray());
             comboboxEstado.SelectedIndex = 0;
-
         }
+
+
         public void setTecnico()
         {
             lTecnico.Text = DLogin.tecnico;
@@ -58,9 +59,6 @@ namespace capapresentacion
             {
                 this.mensajeerror("selleccione el registro a modificar");
             }
-
-            mostrarProyectoCombobox();
-            mostrarEstadoCombobox();
         }
         private void botonesVisible(bool estado)
         {
@@ -68,6 +66,7 @@ namespace capapresentacion
             btnCancelar.Visible = estado;
             txtDescripcionTarea.Enabled = estado;
             txtObservacionesTarea.Enabled = estado;
+            
             btnEditar.Visible = !estado;
             btnNuevo.Visible = !estado;
         }
@@ -79,58 +78,41 @@ namespace capapresentacion
 
         public void visualizaDatos(string id, string proyecto, string tarea, string descripcion, string observaciones, string fecha_creacion, string estado,string tecnico)
         {
-
             txtIdTarea.Text = id;
             txtTituloTarea.Text = tarea;
-            comboboxProyecto.Items.Add(proyecto);
-            comboboxProyecto.SelectedIndex = 0;
+            comboboxProyecto.SelectedIndex = comboboxProyecto.FindStringExact(proyecto);
             txtDescripcionTarea.Text = descripcion;
             txtObservacionesTarea.Text = observaciones;
             dtFechaTarea.Text = fecha_creacion;
-            comboboxEstado.Items.Add(estado);
-            comboboxEstado.SelectedIndex = 0;
+            comboboxEstado.SelectedIndex = comboboxEstado.FindStringExact(estado);
             lTecnico.Text = tecnico;
         }
 
-        /*
-        private void habilitar(bool valor)
-        {
-            this.txtIdProyecto.ReadOnly = true;
-            this.txtTituloProyecto.ReadOnly = !valor;
-            this.txtObservacionesProyecto.ReadOnly = !valor;
-            this.txtDescripcionProyecto.ReadOnly = !valor;
-            this.dtFechaProyecto.Enabled = valor;
-
-        }*/
         private void habilitar(bool valor)
         {
             this.txtIdTarea.ReadOnly = true;
-            this.txtIdTarea.ReadOnly = true;
+            this.txtDescripcionTarea.ReadOnly = !valor;
             this.txtTituloTarea.ReadOnly = !valor;
-
+            this.comboboxEstado.Enabled = valor;
+            this.comboboxProyecto.Enabled = valor;
+            this.dtFechaTarea.Enabled = valor;
         }
-
-        //private void txtAplicacion_TextChanged(object sender, EventArgs e)
-        //{
-
-        //}
 
         private void FrmDetalleTarea_Load(object sender, EventArgs e)
         {
-
+            mostrarProyectoCombobox();
+            mostrarEstadoCombobox();
         }
-
-    
-
         private void btnNuevo_Click(object sender, EventArgs e)
         {
+            crearNuevo();
+        }
+        public void crearNuevo() {
             esnuevo = true;
             botonesVisible(true);
             setModo("CREACIÓN");
             botones();
             limpiar();
-            mostrarProyectoCombobox();
-            mostrarEstadoCombobox();
         }
         public void setModo(String modo)
         {
@@ -163,12 +145,16 @@ namespace capapresentacion
             this.comboboxProyecto.Items.Clear();
             this.comboboxEstado.Items.Clear();
             dtFechaTarea.Text = string.Empty;
-            this.txtHoras.Text = string.Empty;
             this.txtDescripcionTarea.Text = string.Empty;
             this.txtObservacionesTarea.Text = string.Empty;
         }
 
         private void btnCancelar_Click(object sender, EventArgs e)
+        {
+            lectura();
+        }
+
+        public void lectura()
         {
             esnuevo = false;
             this.eseditar = false;

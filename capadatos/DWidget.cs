@@ -94,9 +94,6 @@ namespace capadatos
                 if (SqlCon.State == ConnectionState.Open) SqlCon.Close();
             }
 
-
-
-
             return idTarea;
         }
 
@@ -140,7 +137,7 @@ namespace capadatos
             return dtresultado;
         }
 
-        public string insertartiempo(String titulo,DateTime fechaInicio)
+        public string insertartiempo(String titulo,DateTime fechaInicio, DateTime fechaFin)
         {
             string rpta = "";
             SqlConnection SqlCon = new SqlConnection();
@@ -150,7 +147,7 @@ namespace capadatos
                 SqlCon.Open();
                 SqlCommand SqlCmd = new SqlCommand();
                 SqlCmd.Connection = SqlCon;
-                SqlCmd.CommandText = "spinsertar_tiempo";
+                SqlCmd.CommandText = "spinsertar_tiempo_gadget";
                 SqlCmd.CommandType = CommandType.StoredProcedure;
 
                 //Definición de atributos
@@ -184,17 +181,17 @@ namespace capadatos
                 ParFechaInicio.Value = fechaInicio;
                 SqlCmd.Parameters.Add(ParFechaInicio);
                 
-                /*
+                
                 //fecha_fin
                 SqlParameter ParFechaFin = new SqlParameter();
                 ParFechaFin.ParameterName = "@fecha_fin";
                 ParFechaFin.SqlDbType = SqlDbType.SmallDateTime;
                 //ParFecha.Size = 1024;
-                ParFechaFin.Value = tiempo.Fecha_fin;
+                ParFechaFin.Value = fechaFin;
                 SqlCmd.Parameters.Add(ParFechaFin);
-                */
                 
-                rpta = SqlCmd.ExecuteNonQuery() == 1 ? "OK" : "No es posible insertar el tiempo";
+                
+                rpta = SqlCmd.ExecuteNonQuery() == 2 ? "OK" : "No es posible insertar el tiempo";
 
                 return rpta;
             }

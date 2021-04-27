@@ -24,7 +24,6 @@ namespace capadatos
             {
                 MessageBox.Show("Ultimo registro alcanzado", "Detalle de Proyecto", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
-
         }
         public static void restaIndex()
         {
@@ -34,9 +33,7 @@ namespace capadatos
             }
             else{
                 MessageBox.Show("Primer registro alcanzado", "Detalle de Proyecto", MessageBoxButtons.OK, MessageBoxIcon.Information);
-            }
-            
-
+            }      
         }
     }
 }

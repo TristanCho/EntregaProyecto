@@ -34,7 +34,7 @@ namespace capapresentacion
 
         private void FrmTarea_Load(object sender, EventArgs e)
         {
-
+            cboBuscarTareas.SelectedIndex = 0;
         }
 
         public void mostrartareas()
@@ -49,9 +49,7 @@ namespace capapresentacion
         private void btnNuevo_Click(object sender, EventArgs e)
         {
             FrmParent.frmparent.lanzarNuevoElemento(detalleTareas);
-            detalleTareas.mostrarProyectoCombobox();
-            detalleTareas.mostrarEstadoCombobox();
-            detalleTareas.setModo("CREACIÓN");
+            detalleTareas.crearNuevo();
             detalleTareas.setTecnico();
             detalleTareas.setBotonEliminar(false);
         }
@@ -111,8 +109,9 @@ namespace capapresentacion
                 Convert.ToString(this.dataListTareas.CurrentRow.Cells["estado"].Value),
                 Convert.ToString(this.dataListTareas.CurrentRow.Cells["tecnico"].Value)
                 );
-            detalleTareas.setModo("LECTURA");
+
             FrmParent.frmparent.lanzarNuevoElemento(detalleTareas);
+            detalleTareas.lectura();
         }
 
         private void cboBuscarTareas_SelectedIndexChanged(object sender, EventArgs e)
@@ -143,7 +142,10 @@ namespace capapresentacion
                 DInformacionTarea.dataListTareas = dataListTareas;
                 DInformacionTarea.index = this.dataListTareas.CurrentRow.Index;
                 DInformacionTarea.detalleTarea = detalleTarea;
-                
+
+
+                FrmParent.frmparent.lanzarNuevoElemento(detalleTarea);
+
                 detalleTarea.visualizaDatos(
                     Convert.ToString(this.dataListTareas.CurrentRow.Cells["id"].Value),
                     Convert.ToString(this.dataListTareas.CurrentRow.Cells["proyecto"].Value),
@@ -154,9 +156,6 @@ namespace capapresentacion
                     Convert.ToString(this.dataListTareas.CurrentRow.Cells["estado"].Value),
                     Convert.ToString(this.dataListTareas.CurrentRow.Cells["tecnico"].Value)
                     );
-
-                FrmParent.frmparent.lanzarNuevoElemento(detalleTarea);
-
             }
             catch (Exception)
             {

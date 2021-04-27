@@ -62,23 +62,5 @@ namespace capanegocio
 
             return objeto.mostrarTareaCombobox(objeto);
         }
-
-        //public static string buscarid(string tarea, DateTime fecha_inicio, DateTime fecha_fin, string observaciones)
-        //{
-        //    DTiempoid objeto = new DTiempoid();
-        //    //objeto.Id = id;
-
-        //    //return objeto.getid(objeto);
-
-           
-        //    objeto.Tarea = tarea;
-        //    objeto.Fecha_inicio = fecha_inicio;
-        //    objeto.Fecha_fin = fecha_fin;
-        //    objeto.Observaciones = observaciones;
-
-        //    return objeto.getid(objeto);
-
-        //}
-
     }
 }

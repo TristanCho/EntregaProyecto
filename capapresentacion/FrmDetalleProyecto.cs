@@ -43,7 +43,6 @@ namespace capapresentacion
             this.txtDescripcionProyecto.Text = string.Empty;
             this.dtFechaProyecto.Text = string.Empty;
         }
-
         private void habilitar(bool valor)
         {
             this.txtIdProyecto.ReadOnly = true;
@@ -65,20 +64,12 @@ namespace capapresentacion
 
         private void botones()
         {
-            if(esnuevo)
+            if(esnuevo || eseditar)
             {
-                habilitar(true);
+                habilitar(true );
                 btnNuevo.Enabled = false;
                 btnGuardar.Enabled = true;
                 btnEditar.Enabled = false;
-                btnCancelar.Enabled = true;
-            }
-            else if (eseditar)
-            {
-                habilitar(true);
-                btnNuevo.Enabled = false;
-                btnGuardar.Enabled = true;
-                btnEditar.Enabled = true;
                 btnCancelar.Enabled = true;
             }
             else
@@ -109,8 +100,17 @@ namespace capapresentacion
             frmPrincipal.Show();
         }
 
+        public void setModo(String modo)
+        {
+            lEdicion.Text = "[MODO " + modo + "]";
+        }
+
         private void btnNuevo_Click(object sender, EventArgs e)
         {
+            crearProyecto();
+        }
+
+        public void crearProyecto() {
             esnuevo = true;
             txtObservacionesProyecto.Enabled = true;
             txtDescripcionProyecto.Enabled = true;
@@ -119,10 +119,7 @@ namespace capapresentacion
             botones();
             limpiar();
         }
-        public void setModo(String modo)
-        {
-            lEdicion.Text = "[MODO " + modo + "]";
-        }
+        
         private void btnGuardar_Click(object sender, EventArgs e)
         {
             try
@@ -169,7 +166,8 @@ namespace capapresentacion
                         }
                         
                     }
-                    else {
+                    else 
+                    {
                         this.mensajeerror(rpta);
                     }
    
@@ -217,27 +215,6 @@ namespace capapresentacion
             this.Hide();
             //llamaVisualizaDatos();
         }
-        
-        public void visualizaDatos(string id, string proyecto, string descripcion, string observaciones,string fecha_creacion)
-        {
-            
-            this.txtIdProyecto.Text = id;
-            this.txtTituloProyecto.Text = proyecto;
-            this.txtObservacionesProyecto.Text = observaciones;
-            this.txtDescripcionProyecto.Text = descripcion;
-            this.dtFechaProyecto.Text = fecha_creacion;
-            
-        }
-        /* BORRAR, YA NO SIRVE PORQUE VOLVEMOS AL GRID
-        public void llamaVisualizaDatos()
-        {
-            visualizaDatos(
-                Convert.ToString(DInformacionProyecto.dataListProyectos.Rows[DInformacionProyecto.index].Cells["id"].Value),
-                Convert.ToString(DInformacionProyecto.dataListProyectos.Rows[DInformacionProyecto.index].Cells["titulo"].Value),
-                Convert.ToString(DInformacionProyecto.dataListProyectos.Rows[DInformacionProyecto.index].Cells["descripcion"].Value),
-                Convert.ToString(DInformacionProyecto.dataListProyectos.Rows[DInformacionProyecto.index].Cells["observaciones"].Value),
-                Convert.ToString(DInformacionProyecto.dataListProyectos.Rows[DInformacionProyecto.index].Cells["fecha"].Value));            
-        }*/
         private void btnEliminarProyecto_Click(object sender, EventArgs e)
         {
             
@@ -273,6 +250,16 @@ namespace capapresentacion
             }
 
         }
+
+        public void visualizaDatos(string id, string proyecto, string descripcion, string observaciones, string fecha_creacion)
+        {
+            this.txtIdProyecto.Text = id;
+            this.txtTituloProyecto.Text = proyecto;
+            this.txtObservacionesProyecto.Text = observaciones;
+            this.txtDescripcionProyecto.Text = descripcion;
+            this.dtFechaProyecto.Text = fecha_creacion;
+        }
+
 
     }
 }

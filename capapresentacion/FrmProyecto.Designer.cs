@@ -29,6 +29,9 @@ namespace capapresentacion
         /// </summary>
         private void InitializeComponent()
         {
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             this.label_añadir = new System.Windows.Forms.Label();
             this.panelRecuadro = new System.Windows.Forms.Panel();
             this.dataListProyectos = new System.Windows.Forms.DataGridView();
@@ -45,7 +48,7 @@ namespace capapresentacion
             // label_añadir
             // 
             this.label_añadir.AutoSize = true;
-            this.label_añadir.Location = new System.Drawing.Point(150, 146);
+            this.label_añadir.Location = new System.Drawing.Point(123, 42);
             this.label_añadir.Name = "label_añadir";
             this.label_añadir.Size = new System.Drawing.Size(37, 13);
             this.label_añadir.TabIndex = 21;
@@ -53,11 +56,14 @@ namespace capapresentacion
             // 
             // panelRecuadro
             // 
+            this.panelRecuadro.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.panelRecuadro.BackColor = System.Drawing.Color.Gold;
             this.panelRecuadro.Controls.Add(this.dataListProyectos);
-            this.panelRecuadro.Location = new System.Drawing.Point(39, 180);
+            this.panelRecuadro.Location = new System.Drawing.Point(12, 65);
             this.panelRecuadro.Name = "panelRecuadro";
-            this.panelRecuadro.Size = new System.Drawing.Size(663, 282);
+            this.panelRecuadro.Size = new System.Drawing.Size(775, 411);
             this.panelRecuadro.TabIndex = 20;
             // 
             // dataListProyectos
@@ -65,16 +71,47 @@ namespace capapresentacion
             this.dataListProyectos.AllowUserToAddRows = false;
             this.dataListProyectos.AllowUserToDeleteRows = false;
             this.dataListProyectos.AllowUserToOrderColumns = true;
-            this.dataListProyectos.BackgroundColor = System.Drawing.Color.White;
-            this.dataListProyectos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataListProyectos.AllowUserToResizeRows = false;
+            this.dataListProyectos.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dataListProyectos.BackgroundColor = System.Drawing.Color.LightGray;
+            this.dataListProyectos.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.dataListProyectos.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
+            this.dataListProyectos.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.Gray;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.Gray;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataListProyectos.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            this.dataListProyectos.ColumnHeadersHeight = 34;
+            this.dataListProyectos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
             this.dataListProyectos.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Eliminar});
             this.dataListProyectos.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dataListProyectos.EnableHeadersVisualStyles = false;
+            this.dataListProyectos.GridColor = System.Drawing.Color.DimGray;
             this.dataListProyectos.Location = new System.Drawing.Point(0, 0);
             this.dataListProyectos.Name = "dataListProyectos";
             this.dataListProyectos.ReadOnly = true;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.LightGray;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataListProyectos.RowHeadersDefaultCellStyle = dataGridViewCellStyle2;
+            this.dataListProyectos.RowHeadersVisible = false;
             this.dataListProyectos.RowHeadersWidth = 51;
-            this.dataListProyectos.Size = new System.Drawing.Size(663, 282);
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.Silver;
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.White;
+            this.dataListProyectos.RowsDefaultCellStyle = dataGridViewCellStyle3;
+            this.dataListProyectos.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dataListProyectos.Size = new System.Drawing.Size(775, 411);
             this.dataListProyectos.TabIndex = 4;
             this.dataListProyectos.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataListProyectos_CellContentClick_1);
             this.dataListProyectos.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataListProyectos_CellDoubleClick);
@@ -95,7 +132,7 @@ namespace capapresentacion
             this.btnNuevo.FlatAppearance.BorderColor = System.Drawing.Color.White;
             this.btnNuevo.FlatAppearance.BorderSize = 0;
             this.btnNuevo.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnNuevo.Location = new System.Drawing.Point(190, 138);
+            this.btnNuevo.Location = new System.Drawing.Point(163, 34);
             this.btnNuevo.Margin = new System.Windows.Forms.Padding(0);
             this.btnNuevo.Name = "btnNuevo";
             this.btnNuevo.Size = new System.Drawing.Size(26, 28);
@@ -111,7 +148,7 @@ namespace capapresentacion
             this.btnEliminarProyecto.FlatAppearance.BorderColor = System.Drawing.Color.White;
             this.btnEliminarProyecto.FlatAppearance.BorderSize = 0;
             this.btnEliminarProyecto.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnEliminarProyecto.Location = new System.Drawing.Point(104, 138);
+            this.btnEliminarProyecto.Location = new System.Drawing.Point(77, 34);
             this.btnEliminarProyecto.Margin = new System.Windows.Forms.Padding(0);
             this.btnEliminarProyecto.Name = "btnEliminarProyecto";
             this.btnEliminarProyecto.Size = new System.Drawing.Size(32, 28);
@@ -121,8 +158,9 @@ namespace capapresentacion
             // 
             // lblTotal
             // 
+            this.lblTotal.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.lblTotal.AutoSize = true;
-            this.lblTotal.Location = new System.Drawing.Point(567, 146);
+            this.lblTotal.Location = new System.Drawing.Point(641, 43);
             this.lblTotal.Name = "lblTotal";
             this.lblTotal.Size = new System.Drawing.Size(111, 13);
             this.lblTotal.TabIndex = 17;
@@ -131,7 +169,7 @@ namespace capapresentacion
             // cbEliminar
             // 
             this.cbEliminar.AutoSize = true;
-            this.cbEliminar.Location = new System.Drawing.Point(39, 146);
+            this.cbEliminar.Location = new System.Drawing.Point(12, 42);
             this.cbEliminar.Name = "cbEliminar";
             this.cbEliminar.Size = new System.Drawing.Size(62, 17);
             this.cbEliminar.TabIndex = 16;
@@ -141,10 +179,12 @@ namespace capapresentacion
             // 
             // txtBuscarProyecto
             // 
+            this.txtBuscarProyecto.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.txtBuscarProyecto.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtBuscarProyecto.Location = new System.Drawing.Point(39, 54);
+            this.txtBuscarProyecto.Location = new System.Drawing.Point(12, 12);
             this.txtBuscarProyecto.Name = "txtBuscarProyecto";
-            this.txtBuscarProyecto.Size = new System.Drawing.Size(663, 20);
+            this.txtBuscarProyecto.Size = new System.Drawing.Size(775, 20);
             this.txtBuscarProyecto.TabIndex = 14;
             this.txtBuscarProyecto.TextChanged += new System.EventHandler(this.txtBuscarProyecto_TextChanged);
             // 

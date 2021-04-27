@@ -15,10 +15,10 @@ namespace capanegocio
             return dw.sacaIdComboboxSeleccionado(titulo);
         }
 
-        public void insertaTiempoTarea(string titulo,DateTime fechaInicio)
+        public void insertaTiempoTarea(string titulo,DateTime fechaInicio, DateTime fechaFin)
         {
             DWidget dw = new DWidget();
-            dw.insertartiempo(titulo,fechaInicio);
+            dw.insertartiempo(titulo,fechaInicio,fechaFin);
 
         }
     }
