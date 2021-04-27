@@ -167,7 +167,7 @@ namespace capadatos
 
 
                 rpta = SqlCmd.ExecuteNonQuery() == 3 ? "OK" : "No es posible insertar el tiempo";
-                MessageBox.Show(rpta);
+              
 
                 return rpta;
             }
