@@ -19,9 +19,9 @@ namespace capapresentacion
 {
     public partial class Widget : Form
     {
-        //Stopwatch cronometro = new Stopwatch();
+        
         System.Timers.Timer temporizador;
-        int hora, minuto, segundo;
+        
 
         SqlConnection con = new SqlConnection("Data Source=MSI\\SQLMSI;Initial Catalog=IlernaV2;Integrated Security=False;User Id=winplus;Password=Pbjjajlp5h4m1");
          //SqlConnection con = new SqlConnection("Data Source=PCCRISTHIAN\\SQLEXPRESS;Initial Catalog=IlernaV2;Integrated Security=False;User Id=winplus;Password=Pbjjajlp5h4m1");
@@ -33,41 +33,7 @@ namespace capapresentacion
         }
 
         private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
-        {/*
-            //String id = comboBox1.Text;
-            //Con esto puedes sacas el nombre del proyecto que señalas en el combobox,y al clicarlo te da su codigo con el cual luego haces una consulta sobre los proyectos
-            try
-            {
-                
-                con.Open();
-                SqlCommand query = new SqlCommand("select descripcion from Proyectos p inner join TareasPersonales_Tareas tpt on "+ comboBox1.SelectedValue + "=tpt.idProyecto inner join Tareas t on t.id=tpt.idTareaProyecto", con);
-
-                //SqlCommand query = new SqlCommand("select codigo from Personal where codigo='" + comboBox1.SelectedValue.ToString()+"'", con);
-
-                SqlDataReader reader;
-                reader = query.ExecuteReader();
-                DataTable dt = new DataTable();
-
-                dt.Columns.Add("descripcion", typeof(string));
-                dt.Columns.Add("codigo", typeof(string));
-
-
-                //dt.Columns.Add("codigo", typeof(string));
-
-                dt.Load(reader);
-
-
-
-                comboBox2.ValueMember = "descripcion";
-                //comboBox2.ValueMember = "codigo";
-
-                comboBox2.DataSource = dt;
-                con.Close();
-            }
-            catch (Exception)
-            {
-
-            }*/
+        {
         }
 
         private void Form1_Load(object sender, EventArgs e)
@@ -112,25 +78,10 @@ namespace capapresentacion
         {
             Invoke(new Action(() =>
             {
-                /*segundo += 1;
-                if (segundo == 60)
-                {
-                    segundo = 0;
-                    minuto += 1;
-                }
-                if (minuto == 60)
-                {
-                    minuto = 0;
-                    hora += 1;
-                }*/
                 lCronometro.Text = (DateTime.Now - TiempoStatic.StartDate).ToString(@"hh\:mm\:ss");//string.Format("{0}:{1}:{2}",hora.ToString().PadLeft(2, '0'), minuto.ToString().PadLeft(2, '0'),segundo.ToString().PadLeft(2, '0'));
-            }));//TODO me ha saltado error cuando desde el widget pongo a rodar el tiempo y luego maximizo el formulario
+            }));
         }
 
-        //private void comboBox2_SelectedIndexChanged(object sender, EventArgs e)
-        //{
-
-        //}
  
         private void notifyIcon1_MouseDoubleClick(object sender, MouseEventArgs e)
         {
@@ -217,108 +168,20 @@ namespace capapresentacion
             TiempoStatic.IsWorking = true;
             botonStart.Visible = false;
             botonApagar.Visible = true;
-            //NWidget nw = new NWidget();
-            //nw.sacaIdComboboxSeleccionado("PRUBA222");
-            //Console.WriteLine(sacaIdComboboxSeleccionado("listaTareasPersonales.SelectedValue.ToString()));
-            //Console.WriteLine(nw.sacaIdComboboxSeleccionado(listaTareasPersonales.SelectedValue.ToString()));
-            //nw.insertaTiempoTarea(listaTareasPersonales.SelectedValue.ToString(), DateTime.Now);
-            //Console.WriteLine(listaTareasPersonales.SelectedValue.ToString());
-
-
+           
         }
-        /*
-        public string sacaIdComboboxSeleccionado(String titulo)
-        {
-            string _tecnicoId = "";
-            DataTable dtresultado = new DataTable("tareas");
-            try
-            {
-
-                con.Open();
-                SqlCommand SqlCmd = new SqlCommand();
-                SqlCmd.Connection = con;
-                SqlCmd.CommandText = "spmostrar_tarea_widget";
-                SqlCmd.CommandType = CommandType.StoredProcedure;
-
-                //consulta del usuario
-                SqlParameter ParTitulo = new SqlParameter();
-                ParTitulo.ParameterName = "@titulo";
-                ParTitulo.SqlDbType = SqlDbType.VarChar;
-                ParTitulo.Size = 20;
-                ParTitulo.Value = titulo; //aqui va el titulo;
-                SqlCmd.Parameters.Add(ParTitulo);
-
-                SqlDataAdapter sqladap = new SqlDataAdapter(SqlCmd);
-                sqladap.Fill(dtresultado);//es el que se encarga de rellenar nuestra tabla con el procedimiento almacenado
-                
-                _tecnicoId=dtresultado.Rows.OfType<DataRow>().Select(k => k[0].ToString()).First();
-
-
-            }
-            catch (Exception)
-            {
-                dtresultado = null;
-            }
-            finally
-            {
-               
-                con.Close();
-            }
-
-
-
-
-            return _tecnicoId;
-        }*/
+       
         private void iniciaCronometro()
         {
             temporizador.Start();
-            //inserta
-
-            //sacaId();
-            /*
-            if (listaTareasPersonales.SelectedItem != null)
-            {
-                //cronometro.Start();
-                //temporizador.Enabled = true;
-
-               // hora_inicio = DateTime.Now.TimeOfDay;
-                //fecha_inicio = DateTime.Now.ToLongDateString();
-
-                // Con este update lo que haremos mas adelante será preguntar si la fecha actual es mayor a la fecha insertada
-                // ya que si no cada vez que cliquemos al boton start la fecha de inicio cambiara
-                con.Open();
-                SqlCommand cmd = new SqlCommand(" UPDATE tt SET tt.fechaInicio=CURRENT_TIMESTAMP from Proyectos p  inner join Tareas t on p.id="+ comboBox1.SelectedValue + " inner join Tiempos_tarea tt on tt.id_tarea=t.id", con);
-                cmd.ExecuteNonQuery();
-                con.Close();
-            }*/
+           
         }
 
         private void pararCronometro()
         {
-            temporizador.Stop();
-            //cronometro.Stop();
-            /*
-            con.Open();
-            SqlCommand cmd = new SqlCommand(" UPDATE tt SET tt.fechaFin=CURRENT_TIMESTAMP from Proyectos p  inner join Tareas t on p.id=" + comboBox2.SelectedValue + "  inner join Tiempos_tarea tt on tt.id_tarea=t.id", con);
-            cmd.ExecuteNonQuery();
-            con.Close();
-
-            hora_fin = DateTime.Now.TimeOfDay;
-            fecha_fin = DateTime.Now.ToLongDateString();
-            */
+            temporizador.Stop();           
         }
-        /*
-        private void temporizador_Tick(object sender, EventArgs e)
-        {
-            TimeSpan ts = new TimeSpan(0, 0, 0, 0, (int)cronometro.ElapsedMilliseconds);
-
-            thora.Text = ts.Hours.ToString().Length < 2 ? "0" + ts.Hours.ToString() : ts.Hours.ToString();
-            tminuto.Text = ts.Minutes.ToString().Length < 2 ? "0" + ts.Minutes.ToString() : ts.Minutes.ToString();
-            tsegundo.Text = ts.Seconds.ToString().Length < 2 ? "0" + ts.Seconds.ToString() : ts.Seconds.ToString();
-
-        }
-        */
+       
         private void modoAplicacionToolStripMenuItem_Click(object sender, EventArgs e)
         {
             FrmPrincipal frmPrincipal = new FrmPrincipal();
