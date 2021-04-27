@@ -209,6 +209,10 @@ namespace capapresentacion
         private void iniciarCronometroToolStripMenuItem_Click(object sender, EventArgs e)
         {
             iniciaCronometro();
+            TiempoStatic.StartDate = DateTime.Now;
+            TiempoStatic.IsWorking = true;
+            botonStart.Visible = false;
+            botonApagar.Visible = true;
         }
 
         private void Widget_FormClosing(object sender, FormClosingEventArgs e)
@@ -219,6 +223,12 @@ namespace capapresentacion
         private void pararCronometroToolStripMenuItem_Click(object sender, EventArgs e)
         {
             pararCronometro();
+            NWidget nw = new NWidget();
+            nw.insertaTiempoTarea(listaTareasPersonales.SelectedValue.ToString(), TiempoStatic.StartDate, DateTime.Now);
+            TiempoStatic.StartDate = DateTime.Now;
+            TiempoStatic.IsWorking = false;
+            botonStart.Visible = true;
+            botonApagar.Visible = false;
         }
 
         private void tCronometro_TextChanged(object sender, EventArgs e)

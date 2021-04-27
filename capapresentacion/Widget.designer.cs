@@ -84,26 +84,26 @@ namespace capapresentacion
             this.iniciarCronometroToolStripMenuItem,
             this.pararCronometroToolStripMenuItem});
             this.contextMenuStrip1.Name = "contextMenuStrip1";
-            this.contextMenuStrip1.Size = new System.Drawing.Size(173, 70);
+            this.contextMenuStrip1.Size = new System.Drawing.Size(181, 92);
             // 
             // modoAplicacionToolStripMenuItem
             // 
             this.modoAplicacionToolStripMenuItem.Name = "modoAplicacionToolStripMenuItem";
-            this.modoAplicacionToolStripMenuItem.Size = new System.Drawing.Size(172, 22);
+            this.modoAplicacionToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.modoAplicacionToolStripMenuItem.Text = "Modo aplicacion";
             this.modoAplicacionToolStripMenuItem.Click += new System.EventHandler(this.modoAplicacionToolStripMenuItem_Click);
             // 
             // iniciarCronometroToolStripMenuItem
             // 
             this.iniciarCronometroToolStripMenuItem.Name = "iniciarCronometroToolStripMenuItem";
-            this.iniciarCronometroToolStripMenuItem.Size = new System.Drawing.Size(172, 22);
+            this.iniciarCronometroToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.iniciarCronometroToolStripMenuItem.Text = "Iniciar cronometro";
             this.iniciarCronometroToolStripMenuItem.Click += new System.EventHandler(this.iniciarCronometroToolStripMenuItem_Click);
             // 
             // pararCronometroToolStripMenuItem
             // 
             this.pararCronometroToolStripMenuItem.Name = "pararCronometroToolStripMenuItem";
-            this.pararCronometroToolStripMenuItem.Size = new System.Drawing.Size(172, 22);
+            this.pararCronometroToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.pararCronometroToolStripMenuItem.Text = "Parar cronometro";
             this.pararCronometroToolStripMenuItem.Click += new System.EventHandler(this.pararCronometroToolStripMenuItem_Click);
             // 
@@ -180,10 +180,11 @@ namespace capapresentacion
             // lCronometro
             // 
             this.lCronometro.AutoSize = true;
-            this.lCronometro.Font = new System.Drawing.Font("Verdana", 21.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lCronometro.Location = new System.Drawing.Point(63, 85);
+            this.lCronometro.Font = new System.Drawing.Font("Verdana", 19F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lCronometro.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.lCronometro.Location = new System.Drawing.Point(55, 88);
             this.lCronometro.Name = "lCronometro";
-            this.lCronometro.Size = new System.Drawing.Size(165, 35);
+            this.lCronometro.Size = new System.Drawing.Size(143, 32);
             this.lCronometro.TabIndex = 33;
             this.lCronometro.Text = "00:00:00";
             // 

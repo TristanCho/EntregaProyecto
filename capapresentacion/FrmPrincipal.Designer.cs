@@ -77,7 +77,7 @@ namespace capapresentacion
             this.widgetBoton.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
             this.widgetBoton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.widgetBoton.ForeColor = System.Drawing.Color.Transparent;
-            this.widgetBoton.Location = new System.Drawing.Point(67, 474);
+            this.widgetBoton.Location = new System.Drawing.Point(72, 477);
             this.widgetBoton.Name = "widgetBoton";
             this.widgetBoton.Size = new System.Drawing.Size(49, 43);
             this.widgetBoton.TabIndex = 6;
